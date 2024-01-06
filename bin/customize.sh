@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear;
 # Bash setup script for NinjaOS
 
 # Colors for styling

@@ -1,3 +1,4 @@
+#!/bin/bash
 clear;
 echo "Invalid option. Please enter a valid option."
 echo "Restarting System..."
