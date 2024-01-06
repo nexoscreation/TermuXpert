@@ -13,7 +13,7 @@ display_logo() {
     ║║╚╗║║║║║║╚╗║╠╗║║╚═╝║║─║╠══╗║
     ║║─║║╠╣╠╣║─║║║╚╝║╔═╗║╚═╝║╚═╝║
     ╚╝─╚═╩══╩╝─╚═╩══╩╝─╚╩═══╩═══╝
-    EOF
+EOF
 # Check if the 'play' command is available (install it if needed)
 if command -v play > /dev/null; then
 # Add your music playing command here
