@@ -17,31 +17,25 @@ wr  ( )  {
 
 4line() {
   rm -rf ~/.zshrc
-  cd ~/ninjaos-termux/.object
-  bash  .2.sh
+  cd ~/ninjaos-termux/banner
+  bash  .install.sh
   clear ; cd ~/ninjaos-termux ; bash ninjaos.sh
 }
  
 5line() {
-  cd ~/ninjaos-termux/.object
-  bash .1.sh
+  cd ~/ninjaos-termux/bash
+  bash .install.sh
   clear ; cd ~/ninjaos-termux ; bash ninjaos.sh
 }
 
 6line() {
-  cd ~/ninjaos-termux/.object
+  cd ~/ninjaos-termux/bash
   rm -rf ~/.zshrc
   chsh -s zsh
-  bash .3.sh
+  bash .install.sh
   clear ; cd ~/ninjaos-termux ; bash ninjaos.sh
 }
 
-7line() {
-  rm -rf ~/ninjaos-termux
-  cd
-  git clone https://github.com/nexoscreator/ninjaos-termux
-  cd ~/ninjaos-termux ; bash ninjaos.sh
-}
     
 selection () {
   cd ~/ninjaos-termux
