@@ -15,44 +15,6 @@ wr  ( )  {
   selection
 }
 
-1line() {
-  apt update && apt upgrade
-  pkg install zsh -y
-  pkg install git -y
-  pkg install figlet toilet -y
-  pkg install ruby  -y
-  pkg install wget  -y
-
-  gem install lolcat 
-  pkg install curl -y
-  pkg install zsh -y
-  
-  clear
-  cd ~/ninjaos-termux/.object/ && cp -r 'ANSI Shadow.flf'  $PREFIX/share/figlet/ASCII-Shadow.flf 
-  git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-
-  pkg install toilet figlet exa -y
-  cd ~/ninjaos-termux/.object
-  rm -rf ~/.termux/colors.properties
-  rm -rf /data/data/com.termux/files/usr/etc/motd
-  cp -r .colors.properties ~/.termux/colors.properties
-  cp -r .termux.properties ~/.termux/termux.properties
-  clear
-  cd ~/ninjaos-termux ; bash ninjaos.sh
-  termux-open-url noscreator.pro
-}
-
-2line() {
-  pkg install zsh
-  chsh -s zsh
-  cd ~/ninjaos-termux ; bash ninjaos.sh
-}
-
-3line() {
-  chsh -s bash
-  cd  ~/ninjaos-termux ; bash ninjaos.sh
-}
-
 4line() {
   rm -rf ~/.zshrc
   cd ~/ninjaos-termux/.object
