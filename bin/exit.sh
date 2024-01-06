@@ -17,19 +17,16 @@ echo -e "${CYAN}║ Visit https://ninjaos.com for more information   ║${NC}"
 echo -e "${CYAN}║                                                  ║${NC}"
 echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
 echo ""
-echo "${GREEN}Saving Changes${NC}"
-sleep 10
+echo -e "${GREEN}Saving Changes...${NC}"
+sleep 4
 clear
-}
-
-exit(){
-    exit
+echo -e "${GREEN}Shutdowing System...${NC}"
+exit
 }
 
 # Main function to orchestrate the installation process
 main() {
     display_footer
-    exit
 }
 
 # Run the main function

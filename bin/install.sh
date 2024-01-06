@@ -39,7 +39,9 @@ rm -rf /data/data/com.termux/files/usr/etc/motd
 cp -r .colors.properties ~/.termux/colors.properties
 -r .termux.properties ~/.termux/termux.properties
 clear
-echo "configurations can be added here"
-cd ~/ninjaos-termux ; bash ninjaos.sh
 termux-open-url https://noscreator.pro
-echo "Installation complete!"
+echo "Thank you for installing!"
+echo "Rebooting Your System!"
+sleep 2
+clear
+cd ~/ninjaos-termux ; bash ninjaos.sh

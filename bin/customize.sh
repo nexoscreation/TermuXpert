@@ -40,3 +40,8 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 EOL
 
 success_msg "Bash setup completed. Restart your terminal to apply changes."
+
+
+clear
+echo " - Congratulations! Your NinjaOS is updated."
+cd ~/ninjaos-termux ; bash ninjaos.sh
