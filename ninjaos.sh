@@ -62,17 +62,7 @@ echo " - Congratulations! Your Featurastic NinjaOS is ready to use."
 echo -e " - Visit \033[4mhttps://featurastic-ninjaos.com\033[0m for updates and support."
 }
 
-# Function to display a footer
-display_footer() {
-echo -e "${PINK}-----------------------------------------------------------${NC}"
-echo -e "${CYAN}╔════════════════════ ${GREEN}NINJA OS${CYAN} ════════════════════╗${NC}"
-echo -e "${CYAN}║                                                  ║${NC}"
-echo -e "${CYAN}║  Thank you for choosing Featurastic NinjaOS!     ║${NC}"
-echo -e "${CYAN}║ Visit https://ninjaos.com for more information   ║${NC}"
-echo -e "${CYAN}║                                                  ║${NC}"
-echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
-echo ""
-}
+
 
 # Function to execute the selected option
 execute_option() {
@@ -86,7 +76,7 @@ execute_option() {
         6) ./bin/zsh_theme.sh ;;
         7) ./bin/highlight_autosuggest.sh ;;
         8) ./scripts/update_featurastic.sh ;;
-        9) exit ;;
+        9) ./bin/exit.sh ;;
         *) echo "Invalid option. Please enter a valid option." ;;
     esac
 }
@@ -96,7 +86,7 @@ main() {
     display_logo
     display_banner
     installation_steps
-    display_footer
+    execute_option
 }
 
 # Run the main function
