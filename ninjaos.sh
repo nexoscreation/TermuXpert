@@ -22,15 +22,15 @@ play ./data/1704523429064_track.mp3 &  # Run in the background
 else
 echo -e "\n\033[1;96mMusic playback is not available. Skipping...\033[0m"
 fi
-sleep 17 # Adjust sleep duration based on your logo display time
+sleep 18 # Adjust sleep duration based on your logo display time
 clear
 }
 
 # Function to display the Featurastic NinjaOS banner
 display_banner() {
-echo -g "\033[1;36m╔════════════════════  NINJA OS  ════════════════════╗"
+echo -e "\033[1;36m╔════════════════════  NINJA OS  ════════════════════╗"
 echo -e "\033[1;36m║                                                           ║"
-echo -g "\033[1;36m║                         Welcome!                          ║"
+echo -e "\033[1;36m║                         Welcome!                          ║"
 echo -e "\033[1;36m║           Explore the Features with Ninja os!             ║"
 echo -e "\033[1;36m║                                                           ║"
 echo -e "\033[1;36m╚══════════════════════════════════════════════════╝"
@@ -64,9 +64,9 @@ echo -e "    - Visit \033[4mhttps://featurastic-ninjaos.com\033[0m for updates a
 # Function to display a footer
 display_footer() {
 echo "-----------------------------------------------------------"
-echo -g "\033[1;36m╔════════════════════  NINJA OS  ════════════════════╗"
+echo -e "\033[1;36m╔════════════════════  NINJA OS  ════════════════════╗"
 echo -e "\033[1;36m║                                                           ║"
-echo -g "\033[1;36m║       Thank you for choosing Featurastic NinjaOS!         ║"
+echo -e "\033[1;36m║       Thank you for choosing Featurastic NinjaOS!         ║"
 echo -e "\033[1;36m║      Visit https://ninjaos.com for more information       ║"
 echo -e "\033[1;36m║                                                           ║"
 echo -e "\033[1;36m╚══════════════════════════════════════════════════╝"
