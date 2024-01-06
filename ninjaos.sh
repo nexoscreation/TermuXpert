@@ -6,15 +6,14 @@ clear
 display_logo() {
     echo "NinjaOS Installation"
     # Add your ASCII art logo display command here
-    cat << "EOF"\n\033[1;96m
-    
-╔═╗─╔╦══╦═╗─╔╗─╔╦═══╦═══╦═══╗
-║║╚╗║╠╣╠╣║╚╗║║─║║╔═╗║╔═╗║╔═╗║
-║╔╗╚╝║║║║╔╗╚╝║─║║║─║║║─║║╚══╗
-║║╚╗║║║║║║╚╗║╠╗║║╚═╝║║─║╠══╗║
-║║─║║╠╣╠╣║─║║║╚╝║╔═╗║╚═╝║╚═╝║
-╚╝─╚═╩══╩╝─╚═╩══╩╝─╚╩═══╩═══╝
-\033[0mEOF
+    cat << "EOF"
+    ╔═╗─╔╦══╦═╗─╔╗─╔╦═══╦═══╦═══╗
+    ║║╚╗║╠╣╠╣║╚╗║║─║║╔═╗║╔═╗║╔═╗║
+    ║╔╗╚╝║║║║╔╗╚╝║─║║║─║║║─║║╚══╗
+    ║║╚╗║║║║║║╚╗║╠╗║║╚═╝║║─║╠══╗║
+    ║║─║║╠╣╠╣║─║║║╚╝║╔═╗║╚═╝║╚═╝║
+    ╚╝─╚═╩══╩╝─╚═╩══╩╝─╚╩═══╩═══╝
+    EOF
 # Check if the 'play' command is available (install it if needed)
 if command -v play > /dev/null; then
 # Add your music playing command here
