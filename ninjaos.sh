@@ -1,18 +1,18 @@
 #!/bin/bash
+clear
 # Colors
 CYAN='\033[0;36m'
 PINK='\033[1;35m'                                                                        
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color                                                                                                                                                           # NinjaOS Installation Script
-local current_dir='%{$fg_bold[cyan]%}%~%{$reset_color%}'
-local git_branch='%{$fg_bold[magenta]%}$(__git_ps1)%{$reset_color%}'
-clear
+current_dir=${CYAN}$(pwd)${NC}
+dir_name=${CYAN}$(basename "$current_dir")${NC}
 
 # Function to display the NinjaOS logo with music  
 display_logo() {
-    echo "└────╼ ❯${git_branch} / ${current_dir}"
-    echo "═════════════════════════════"
+    echo -e "${CYAN}└────╼${NC} ${RED}❯${NC}${current_dir} ${RED}/${NC} ${current_dir}"
+    echo -e "${CYAN}═════════════════════════════${NC}"
     cat << "EOF"
     ╔═╗─╔╦══╦═╗─╔╗─╔╦═══╦═══╦═══╗
     ║║╚╗║╠╣╠╣║╚╗║║─║║╔═╗║╔═╗║╔═╗║
