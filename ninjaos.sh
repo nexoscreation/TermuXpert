@@ -20,12 +20,11 @@ if command -v play > /dev/null; then
 # Example: play /path/to/music.mp3
 play ./data/1704523429064_track.mp3 &  # Run in the background
 else
-echo "\n\033[1;96mMusic playback is not available. Skipping...\033[0m"
+echo -e "\n\033[1;96mMusic playback is not available. Skipping...\033[0m"
 fi
-sleep 4 # Adjust sleep duration based on your logo display time
-}
-
+sleep 10 # Adjust sleep duration based on your logo display time
 clear
+}
 
 # Function to display the Featurastic NinjaOS banner
 display_banner() {
