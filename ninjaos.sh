@@ -49,11 +49,11 @@ echo -e "${CYAN}1. Prepare the Ninja Environment:${NC}"
 echo " - Ensure a stable internet connection."
 echo " - Make sure your system meets the minimum requirements."
 
-echo -e "${CYAN}2. Download and Run the Featurastic Installer:${NC}"
+echo -e "${CYAN}2. Setting up Ninja Environment:${NC}"
 echo " - Execute the following command in your terminal."
 echo " - Follow the on-screen instructions to proceed."
 
-echo -e "${CYAN}3. Customize Your Featurastic NinjaOS:${NC}"
+echo -e "${CYAN}3. Customize Your NinjaOS:${NC}"
 echo " - Explore the various configuration options in the settings."
 echo " - Personalize your shell, themes, and additional tools."
 
@@ -62,21 +62,19 @@ echo " - Congratulations! Your Featurastic NinjaOS is ready to use."
 echo -e " - Visit \033[4mhttps://featurastic-ninjaos.com\033[0m for updates and support."
 }
 
-
-
 # Function to execute the selected option
 execute_option() {
     read -p "Enter the option number: " choice
     case $choice in
-        1) ./bin/install.sh ;;
-        2) ./bin/update.sh ;;
-        3) ./bin/zsh_shell.sh ;;
-        4) ./bin/bash_shell.sh ;;
-        5) ./bin/zsh_banner.sh ;;
-        6) ./bin/zsh_theme.sh ;;
-        7) ./bin/highlight_autosuggest.sh ;;
-        8) ./scripts/update_featurastic.sh ;;
-        9) ./bin/exit.sh ;;
+        1) bash ./bin/install.sh;;
+        2) bash ./bin/zsh_shell.sh ;;
+        3) bash ./bin/bash_shell.sh ;;
+        4) bash ./bin/bash_shell.sh ;;
+        5) bash ./bin/zsh_banner.sh ;;
+        6) bash ./bin/update.sh ;;
+        7) bash ./bin/highlight_autosuggest.sh ;;
+        8) bash ./scripts/update_featurastic.sh ;;
+        9) bash ./bin/exit.sh ;;
         *) echo "Invalid option. Please enter a valid option." ;;
     esac
 }
