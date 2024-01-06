@@ -6,20 +6,20 @@ clear
 display_logo() {
     echo "NinjaOS Installation"
     # Add your ASCII art logo display command here
-    cat << "EOF"
+    cat << "EOF"\n\033[1;96m
    _____ _           _   __  __ _     
   |  ___(_)_ __ ___ (_) |  \/  (_)___ 
   | |_  | | '_ ` _ \| | | |\/| | / __|
   |  _| | | | | | | | | | |  | | \__ \
   |_|   |_|_| |_| |_|_| |_|  |_|_|___/
-EOF
+\033[0mEOF
 # Check if the 'play' command is available (install it if needed)
 if command -v play > /dev/null; then
 # Add your music playing command here
 # Example: play /path/to/music.mp3
-play /data/1704523429064_track.mp3 &  # Run in the background
+play ./data/1704523429064_track.mp3 &  # Run in the background
 else
-echo "Music playback is not available. Skipping..."
+echo "\n\033[1;96mMusic playback is not available. Skipping...\033[0m"
 fi
 sleep 4 # Adjust sleep duration based on your logo display time
 }
