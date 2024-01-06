@@ -1,7 +1,7 @@
 #!/bin/bash
 clear;
 
-cd ~/ninjaos-termux/themes/banner
+cd ~/ninjaos-termux/themes
 rm -rf ~/.zshrc
 chsh -s zsh
 bash install.sh
