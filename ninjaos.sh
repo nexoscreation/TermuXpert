@@ -7,7 +7,8 @@ NC='\033[0m' # No Color                                                         
 
 clear
 
-# Function to display the NinjaOS logo with music                                        display_logo() {
+# Function to display the NinjaOS logo with music  
+display_logo() {
     echo "NinjaOS Installation"
     # Add your ASCII art logo display command here
     cat << "EOF"
@@ -44,7 +45,7 @@ echo ""
 installation_steps() {
 echo -e "${PINK}-----------------------------------------------------------${NC}"
 echo ""
-echo -e "${RED}NinjaOS Installation Steps:/n${NC}"
+echo -e "${RED}NinjaOS Installation Steps:\n${NC}"
 echo -e "${CYAN}1. Prepare the Ninja Environment:${NC}"
 echo " - Ensure a stable internet connection."
 echo " - Make sure your system meets the minimum requirements."
