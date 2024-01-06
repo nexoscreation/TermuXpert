@@ -1,6 +1,6 @@
 #!/bin/bash
-
 # NinjaOS Installation Script
+clear
 
 # Function to display the NinjaOS logo with music
 display_logo() {
@@ -13,19 +13,18 @@ display_logo() {
   |  _| | | | | | | | | | |  | | \__ \
   |_|   |_|_| |_| |_|_| |_|  |_|_|___/
 EOF
-    sleep 2  # Adjust sleep duration based on your logo display time
-    clear
-
-    # Check if the 'play' command is available (install it if needed)
-    if command -v play > /dev/null; then
-        # Add your music playing command here
-        # Example: play /path/to/music.mp3
-        play /data/1704523429064_track.mp3 &  # Run in the background
-    else
-        echo "Music playback is not available. Skipping..."
-    fi
+# Check if the 'play' command is available (install it if needed)
+if command -v play > /dev/null; then
+# Add your music playing command here
+# Example: play /path/to/music.mp3
+play /data/1704523429064_track.mp3 &  # Run in the background
+else
+echo "Music playback is not available. Skipping..."
+fi
+sleep 4 # Adjust sleep duration based on your logo display time
 }
 
+clear
 
 # Function to display the Featurastic NinjaOS banner
 display_banner() {
@@ -35,7 +34,7 @@ display_banner() {
 }
 
 # Function to display Featurastic NinjaOS installation steps
-featurastic_installation_steps() {
+installation_steps() {
     echo -e "\n\033[1;96mFeaturastic NinjaOS Installation Steps:\033[0m"
     echo -e " \033[1;92m1. Prepare the Ninja Environment:\033[0m"
     echo "    - Ensure a stable internet connection."
