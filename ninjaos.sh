@@ -14,25 +14,29 @@ display_logo() {
     ║║─║║╠╣╠╣║─║║║╚╝║╔═╗║╚═╝║╚═╝║
     ╚╝─╚═╩══╩╝─╚═╩══╩╝─╚╩═══╩═══╝
 EOF
-# Check if the 'play' command is available (install it if needed)
+
 if command -v play > /dev/null; then
-# Add your music playing command here
-# Example: play /path/to/music.mp3
-play ./data/1704523429064_track.mp3 &  # Run in the background
+echo -e "\n\033[1;96mMusic playback started in the background.\033[0m"
+play ./data/1704523429064_track.mp3 &
 else
 echo -e "\n\033[1;96mMusic playback is not available. Skipping...\033[0m"
 fi
-sleep 18 # Adjust sleep duration based on your logo display time
+sleep 20
 clear
 }
 
 # Function to display the Featurastic NinjaOS banner
 display_banner() {
-echo -e "\033[1;36m╔════════════════════  NINJA OS  ════════════════════╗"
-echo -e "\033[1;36m║                                                           ║"
-echo -e "\033[1;36m║                         Welcome!                          ║"
-echo -e "\033[1;36m║           Explore the Features with Ninja os!             ║"
-echo -e "\033[1;36m║                                                           ║"
+echo -e "\033[1;36m╔════════════════════ NINJA OS ════════════════════╗"
+echo ""
+echo -e "\033[1;36m║                                                       ║"
+echo ""
+echo -e "\033[1;36m║                       Welcome!                        ║"
+echo ""
+echo -e "\033[1;36m║         Explore the Features with Ninja os!           ║"
+echo ""
+echo -e "\033[1;36m║                                                       ║"
+echo ""
 echo -e "\033[1;36m╚══════════════════════════════════════════════════╝"
 echo ""
 }
@@ -64,11 +68,11 @@ echo -e "    - Visit \033[4mhttps://featurastic-ninjaos.com\033[0m for updates a
 # Function to display a footer
 display_footer() {
 echo "-----------------------------------------------------------"
-echo -e "\033[1;36m╔════════════════════  NINJA OS  ════════════════════╗"
-echo -e "\033[1;36m║                                                           ║"
-echo -e "\033[1;36m║       Thank you for choosing Featurastic NinjaOS!         ║"
-echo -e "\033[1;36m║      Visit https://ninjaos.com for more information       ║"
-echo -e "\033[1;36m║                                                           ║"
+echo -e "\033[1;36m╔════════════════════ NINJA OS ════════════════════╗"
+echo -e "\033[1;36m║                                                       ║"
+echo -e "\033[1;36m║     Thank you for choosing Featurastic NinjaOS!       ║"
+echo -e "\033[1;36m║    Visit https://ninjaos.com for more information     ║"
+echo -e "\033[1;36m║                                                       ║"
 echo -e "\033[1;36m╚══════════════════════════════════════════════════╝"
 echo ""  
 }
