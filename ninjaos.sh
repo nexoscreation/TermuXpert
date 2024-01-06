@@ -10,7 +10,6 @@ clear
 # Function to display the NinjaOS logo with music  
 display_logo() {
     echo "NinjaOS Installation"
-    # Add your ASCII art logo display command here
     cat << "EOF"
     ╔═╗─╔╦══╦═╗─╔╗─╔╦═══╦═══╦═══╗
     ║║╚╗║╠╣╠╣║╚╗║║─║║╔═╗║╔═╗║╔═╗║
@@ -30,7 +29,7 @@ sleep 20
 clear
 }
 
-# Function to display the Featurastic NinjaOS banner
+# Function to display the NinjaOS banner
 display_banner() {
 echo -e "${CYAN}╔════════════════════ ${GREEN}NINJA OS ${CYAN}════════════════════╗${NC}"
 echo -e "${CYAN}║                                                  ║${NC}"
@@ -41,7 +40,7 @@ echo -e "${CYAN}╚════════════════════�
 echo ""
 }
 
-# Function to display Featurastic NinjaOS installation steps
+# Function to display NinjaOS installation steps
 installation_steps() {
 echo -e "${PINK}-----------------------------------------------------------${NC}"
 echo ""
@@ -73,6 +72,23 @@ echo -e "${CYAN}║ Visit https://ninjaos.com for more information   ║${NC}"
 echo -e "${CYAN}║                                                  ║${NC}"
 echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
 echo ""
+}
+
+# Function to execute the selected option
+execute_option() {
+    read -p "Enter the option number: " choice
+    case $choice in
+        1) ./bin/install.sh ;;
+        2) ./bin/update.sh ;;
+        3) ./bin/zsh_shell.sh ;;
+        4) ./bin/bash_shell.sh ;;
+        5) ./bin/zsh_banner.sh ;;
+        6) ./bin/zsh_theme.sh ;;
+        7) ./bin/highlight_autosuggest.sh ;;
+        8) ./scripts/update_featurastic.sh ;;
+        9) exit ;;
+        *) echo "Invalid option. Please enter a valid option." ;;
+    esac
 }
 
 # Main function to orchestrate the installation process
