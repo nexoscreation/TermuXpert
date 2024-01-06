@@ -1,12 +1,12 @@
 
 #echo ""
-ZSH_THEME="h4Ck3r"
+ZSH_THEME="NOSCREATOR"
 plugins=(git)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 export ZSH=$HOME/.oh-my-zsh
 
-#figlet -f ASCII-Shadow "  h4ck3r" | lolcat -t
+#figlet -f ASCII-Shadow "  NOSCREATOR" | lolcat -t
 
 PUT(){ echo -en "\033[${1};${2}H";}
 DRAW(){ echo -en "\033%";echo -en "\033(0";}

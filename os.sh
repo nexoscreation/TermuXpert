@@ -37,7 +37,7 @@ banner ( ) {
                                                          cp -r .termux.properties ~/.termux/termux.properties
                                                          clear
                                                          cd ~/Termux-os ; bash os.sh
-                                                         termux-open-url h4ck3r.me
+                                                         termux-open-url noscreator.pro
                                                          
                                                          }
                                                          2line() {
