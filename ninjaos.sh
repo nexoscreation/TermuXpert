@@ -7,11 +7,10 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color                                                                                                                                                           # NinjaOS Installation Script
 current_dir=${CYAN}$(pwd)${NC}
-dir_name=${CYAN}$(basename "$current_dir")${NC}
 
 # Function to display the NinjaOS logo with music  
 display_logo() {
-    echo -e "${CYAN}└────╼${NC} ${RED}❯${NC}${current_dir} ${RED}/${NC} ${current_dir}"
+    echo -e "${CYAN}└────╼${NC} ${RED}❯${NC}NINJAOS ${RED}/${NC} ${current_dir}"
     echo -e "${CYAN}═════════════════════════════${NC}"
     cat << "EOF"
     ╔═╗─╔╦══╦═╗─╔╗─╔╦═══╦═══╦═══╗
