@@ -1,3 +1,4 @@
+clear;
 echo -e "\e[1;37mWelcome to NinjaOS Termux!\e[0m"
 echo -e "\e[1;37mCustomize your ninja environment.\e[0m"
 echo -e "\e[1;37mType '\e[1;32mhelp\e[1;37m' for assistance.\e[0m"
@@ -42,37 +43,30 @@ wr  ( )  {
 }
 
 2line() {
-  rm -rf ~/.zshrc
-  git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-  cd ~/ninjaos-termux ; bash ninjaos.sh
-}
-
-3line() {
   pkg install zsh
   chsh -s zsh
   cd ~/ninjaos-termux ; bash ninjaos.sh
 }
 
-4line() {
+3line() {
   chsh -s bash
   cd  ~/ninjaos-termux ; bash ninjaos.sh
 }
 
-5line() {
+4line() {
   rm -rf ~/.zshrc
   cd ~/ninjaos-termux/.object
   bash  .2.sh
   clear ; cd ~/ninjaos-termux ; bash ninjaos.sh
 }
  
-6line() {
+5line() {
   cd ~/ninjaos-termux/.object
   bash .1.sh
   clear ; cd ~/ninjaos-termux ; bash ninjaos.sh
 }
 
-7line() {
+6line() {
   cd ~/ninjaos-termux/.object
   rm -rf ~/.zshrc
   chsh -s zsh
@@ -80,7 +74,7 @@ wr  ( )  {
   clear ; cd ~/ninjaos-termux ; bash ninjaos.sh
 }
 
-8line() {
+7line() {
   rm -rf ~/ninjaos-termux
   cd
   git clone https://github.com/nexoscreator/ninjaos-termux
@@ -107,14 +101,14 @@ selection () {
 
 menu () {
   banner
-  printf "\n\033[1;91m[\033[0m1\033[1;91m]\033[1;92m Necessary Setup \n"
-  printf "\033[1;91m[\033[0m2\033[1;91m]\033[1;92m Zsh Setup\n"
-  printf "\033[1;91m[\033[0m3\033[1;91m]\033[1;92m Zsh Shell\n"
-  printf "\033[1;91m[\033[0m4\033[1;91m]\033[1;92m Bash Shell\n"
-  printf "\033[1;91m[\033[0m5\033[1;91m]\033[1;92m Zsh Banner\n"
-  printf "\033[1;91m[\033[0m6\033[1;91m]\033[1;92m Zsh Theme\n"
+  printf "\n\033[1;91m[\033[0m1\033[1;91m]\033[1;92m Install Ninja OS \n"
+  printf "\033[1;91m[\033[0m2\033[1;91m]\033[1;92m Install Zsh Shell\n"
+  printf "\033[1;91m[\033[0m4\033[1;91m]\033[1;92m Install Bash Shell\n"
+  printf "\033[1;91m[\033[0m5\033[1;91m]\033[1;92m Costomize Banner\n"
+  printf "\033[1;91m[\033[0m6\033[1;91m]\033[1;92m Costomize Theme\n"
   printf "\033[1;91m[\033[0m7\033[1;91m]\033[1;92m Highlight / AutoSuggest\n"
-  printf "\033[1;91m[\033[0m8\033[1;91m]\033[1;92m Update\n"
+  printf "\033[1;91m[\033[0m8\033[1;91m]\033[1;92m Update Ninja OS\n"
+  printf "\033[1;91m[\033[0m8\033[1;91m]\033[1;92m Uninstall Ninja OS\n"
   printf "\033[1;91m[\033[0m9\033[1;91m]\033[1;92m Exit\n\n\n"
   selection
 }
