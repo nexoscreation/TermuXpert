@@ -21,8 +21,8 @@ display_logo() {
 EOF
 
 bash ./bin/play_music.sh &
-
 sleep 20
+kill $!
 clear
 }
 
