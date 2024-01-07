@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source the common file is available
-source ./bin/center.sh
+source ./bin/style.sh
 
 # Function for the loading animation
 loading_animation() {
