@@ -2,8 +2,8 @@
 clear
 
 # Source the common file is available
-source center.sh
-source colors.sh
+source ./bin/center.sh
+source ./bin/colors.sh
                                                                                                                                                     # NinjaOS Installation Script
 bash ./bin/loader.sh &
 bash ./bin/play_music.sh &
