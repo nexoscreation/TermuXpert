@@ -11,7 +11,7 @@ echo -e "\e[1;31m  [\e[32m√\e[31m] \e[1;91m by \e[1;36mNos Creator \e[93m/ \e[
 echo
 echo -e "  \e[101;1;39mNOTE\e[0;1;33m Use upto 9 words\e[0m"
 echo ""
-cd ~/ninjaos-termux/.object
+cd ~/ninjaos-termux/themes/zsh
 echo -e '\e[1;96m'
 read -p '  Type Shell Name ❯ ' name
-sed -e "s/\NOSCREATOR/$name/g" .NOSCREATOR.zsh-theme > $HOME/.oh-my-zsh/themes/NOSCREATOR.zsh-theme
+sed -e "s/\NOSCREATOR/$name/g" .ninjaos.zsh-theme > $HOME/.oh-my-zsh/themes/NOSCREATOR.zsh-theme
