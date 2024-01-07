@@ -2,6 +2,8 @@
 
 # Set custom environment variables or configuration settings here
 
+
+
 # Example:
 # export NINJAOS_THEME="ninja-theme.zsh"
 # export NINJAOS_BANNER="banners/banner.txt"

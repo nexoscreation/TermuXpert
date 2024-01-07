@@ -2,13 +2,15 @@
 clear
 
 # Source the common file is available
-source ./bin/center.sh
 source ./bin/colors.sh
-                                                                                                                                                    # NinjaOS Installation Script
-bash ./bin/loader.sh &
-bash ./bin/play_music.sh &
+source ./bin/center.sh
+source ./config/aliases.sh
+source ./config/settings.sh
+
+# NinjaOS Installation Script
 bash ./bin/header.sh &
-# Function to display the NinjaOS logo with music  
+bash ./bin/play_music.sh &
+# Resettion to display the NinjaOS logo with music  
 display_logo() {
     cat << "EOF"
     ╔═╗─╔╦══╦═╗─╔╗─╔╦═══╦═══╦═══╗
@@ -18,50 +20,49 @@ display_logo() {
     ║║─║║╠╣╠╣║─║║║╚╝║╔═╗║╚═╝║╚═╝║
     ╚╝─╚═╩══╩╝─╚═╩══╩╝─╚╩═══╩═══╝
 EOF
+bash ./bin/loader.sh &
 sleep 20
 kill $!
 clear
 }
 
-# Function to display the NinjaOS banner
+# Resettion to display the NinjaOS banner
 display_banner() {
-echo -e "${CYAN}╔════════════════════ ${GREEN}NINJA OS ${CYAN}════════════════════╗${NC}"
-echo -e "${CYAN}║                                                  ║${NC}"
-echo -e "${CYAN}║                    Welcome!                      ║${NC}"
-echo -e "${CYAN}║      Explore the Features with Ninja os!         ║${NC}"
-echo -e "${CYAN}║                                                  ║${NC}"
-echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
+echo -e "${MAGENTA}${Cyan}╔════════════════════ NINJA OS ════════════════════╗${Reset}"
+echo -e "${MAGENTA}${Cyan}║                                                  ║${Reset}"
+echo -e "${MAGENTA}${Cyan}║                    Welcome!                      ║${Reset}"
+echo -e "${MAGENTA}${Cyan}║      Explore the Features with Ninja os!         ║${Reset}"
+echo -e "${MAGENTA}${Cyan}║                                                  ║${Reset}"
+echo -e "${MAGENTA}${Cyan}╚══════════════════════════════════════════════════╝${Reset}"
 echo ""
 }
 
-# Function to display NinjaOS installation steps
+# Resettion to display NinjaOS installation steps
 installation_steps() {
-echo -e "${PINK}-----------------------------------------------------------${NC}"
+echo -e "${Pink}-----------------------------------------------------------${Reset}"
 echo ""
-echo -e "${RED}NinjaOS Installation Steps:\n${NC}"
-echo -e "${CYAN}1. Prepare the Ninja Environment:${NC}"
-echo " - Ensure a stable internet connection."
-echo -e "${CYAN}2. Setting up Ninja Environment:${NC}"
-echo -e "${CYAN}3. Customize Your NinjaOS:${NC}"
-echo " - Explore the various configuration options in the settings."
-echo " - Personalize your shell, themes, and additional tools."
-echo -e "${CYAN}4. Troobleshoot:${NC}"
-echo -e "${CYAN}5. Explore Tools:${NC}"
-echo -e "${CYAN}6. Expirmental Feature:${NC}"
-echo -e "${CYAN}7. Update NinjaOS:${NC}"
-echo -e "${CYAN}8. Uninstall NinjaOS:${NC}"
-echo -e " - Visit \033[4mhttps://featurastic-ninjaos.com\033[0m for updates and support."
-echo -e "${CYAN}9. Exit${NC}"
+echo -e "${Red}NinjaOS Installation Steps:\n${Reset}"
+echo -e "${Cyan}1. Prepare the Ninja Environment${Reset}"
+echo -e "${Cyan}2. Setting up Ninja Environment${Reset}"
+echo -e "${Cyan}3. Customize${Reset}"
+echo -e "${Cyan}4. Troobleshoot${Reset}"
+echo -e "${Cyan}5. Explore Tools${Reset}"
+echo -e "${Cyan}6. Expirmental Feature${Reset}"
+echo -e "${Cyan}7. Update${Reset}"
+echo -e "${Cyan}8. Uninstall${Reset}"
+echo -e "${Cyan}9. Exit${Reset}"
+echo ""
+echo -e "${Pink}-----------------------------------------------------------${Reset}"
 }
 
-# Function to execute the selected option
+# Resettion to execute the selected option
 execute_option() {
   read -p "Enter the option number (1 - 9): " choice
   case $choice in
     1) bash ./bin/install.sh;;
     2) bash ./bin/confi.sh ;;
     3) bash ./bin/customize.sh ;;
-    4) bash ./bin/encrypt.sh ;;
+    4) bash ./bin/eResetrypt.sh ;;
     5) bash ./bin/netstatus.sh ;;
     6) bash ./bin/sysinfo.sh ;;
     7) bash ./bin/updatesh.sh ;;
@@ -71,7 +72,7 @@ execute_option() {
   esac
 }
 
-# Main function to orchestrate the installation process
+# Main fuResettion to orchestrate the installation process
 main() {
     display_logo
     display_banner
@@ -79,5 +80,5 @@ main() {
     execute_option
 }
 
-# Run the main function
+# Run the main fuResettion
 main

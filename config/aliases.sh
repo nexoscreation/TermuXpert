@@ -6,6 +6,13 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# ninjaos 
+alias nos='~/ninjaos-termux/'
+alias nosbin='~/ninjaos-termux/bin/'
+alias noscon='~/ninjaos-termux/config/'
+alias nosdat='~/ninjaos-termux/data/'
+alias nosthe='~/ninjaos-termux/themes/'
+
 # List files with color and details
 alias l='ls -lh --color=auto'
 alias ll='ls -lha --color=auto'
