@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./bin/colors.sh
+source ./config/colors.sh
 
 # Function to get the width of the terminal
 get_terminal_width() {

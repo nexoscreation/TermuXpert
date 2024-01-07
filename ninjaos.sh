@@ -2,8 +2,8 @@
 clear
 
 # Source the common file is available
-source ./bin/colors.sh
 source ./bin/center.sh
+source ./config/colors.sh
 source ./config/aliases.sh
 source ./config/settings.sh
 
