@@ -1,11 +1,10 @@
 #!/bin/bash
 clear
-# Colors
-CYAN='\033[0;36m'
-PINK='\033[1;35m'                                                                        
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color                                                                                                                                                           # NinjaOS Installation Script
+
+# Source the common file is available
+source center.sh
+source colors.sh
+                                                                                                                                                    # NinjaOS Installation Script
 bash ./bin/loader.sh &
 bash ./bin/play_music.sh &
 bash ./bin/header.sh &
@@ -22,14 +21,6 @@ EOF
 sleep 20
 kill $!
 clear
-}
-
-# Function to get the center position of the terminal
-get_center_position() {
-  local term_width
-  term_width=$(tput cols)
-  local center_position=$((term_width / 2))
-  echo $center_position
 }
 
 # Function to display the NinjaOS banner
@@ -89,8 +80,6 @@ execute_option() {
     *) bash ./bin/error.sh ;;
   esac
 }
-
-
 
 # Main function to orchestrate the installation process
 main() {
