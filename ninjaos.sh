@@ -2,7 +2,7 @@
 clear
 
 # Source the common file is available
-source ./bin/center.sh
+source ./bin/style.sh
 source ./config/colors.sh
 source ./config/aliases.sh
 source ./config/settings.sh
@@ -27,7 +27,7 @@ clear
 
 # Resettion to display the NinjaOS banner
 display_banner() {
-bash ./bin/header.sh &
+bash ./bin/header.sh
 echo ""
 echo -e "${YELLOW}${Cyan}╔════════════════════ NINJA OS ════════════════════╗${Reset}"
 echo -e "${YELLOW}${Cyan}║                                                  ║${Reset}"
@@ -63,7 +63,7 @@ execute_option() {
     1) bash ./bin/install.sh;;
     2) bash ./bin/confi.sh ;;
     3) bash ./bin/customize.sh ;;
-    4) bash ./bin/eResetrypt.sh ;;
+    4) bash ./bin/encrypt.sh ;;
     5) bash ./bin/netstatus.sh ;;
     6) bash ./bin/sysinfo.sh ;;
     7) bash ./bin/updatesh.sh ;;

@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 PUT(){ echo -en "\033[${1};${2}H";}
-clear;toilet -t -f mono12  "BANNER" --gay -F border 
+clear;
+toilet -t -f mono12  "BANNER" --gay -F border 
 echo ""
 PUT 11 40
 echo -e "\e[92mBy\e[1;93m Nos Creator\e[1;95m /\e[1;96m NOSCREATOR0 "

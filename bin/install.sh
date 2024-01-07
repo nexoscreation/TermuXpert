@@ -1,37 +1,37 @@
 #!/bin/bash
 clear;
-echo "Installing necessary tools for NinjaOS..."
-sleep 2
+echo "--Installing necessary tools--
+sleep 1
 clear;
-echo "Updating you system for NinjaOS..."
+echo "--Updating you system--
 apt update && apt upgrade
 clear;
-echo "Installing Zsh for NinjaOS..."
+echo "--Installing Zsh--
 pkg install zsh -y
 clear;
-echo "Installing git for NinjaOS..."
+echo "--Installing git--
 pkg install git -y
 clear
-echo "Installing Filget for NinjaOS..."
+echo "--Installing Filget--
 pkg install figlet toilet -y
 clear
-echo "Installing Ruby for NinjaOS..."
+echo "--Installing Ruby--
 pkg install ruby  -y
 clear
-echo "Installing Wget for NinjaOS..."
+echo "--Installing Wget--
 pkg install wget  -y
 clear
-echo "Installing Curl for NinjaOS..."
+echo "--Installing Curl--
 pkg install curl -y
 clear
-echo "Installing Lolcat for NinjaOS..."
+echo "--Installing Lolcat--
 gem install lolcat 
 clear
-echo "Installing theme tools for NinjaOS..."
+echo "--Installing theme tools--
 cd ~/ninjaos-termux/themes/banner/ && cp -r 'ANSI Shadow.flf'  $PREFIX/share/figlet/ASCII-Shadow.flf 
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 clear
-echo "Additional installations for NinjaOS..."
+echo "--Additional installations--
 pkg install toilet figlet exa -y
 cd ~/ninjaos-termux/config
 rm -rf ~/.termux/colors.properties
@@ -42,6 +42,6 @@ clear
 termux-open-url https://noscreator.pro
 echo "Thank you for installing!"
 echo "Rebooting Your System!"
-sleep 2
+sleep 1
 clear
 cd ~/ninjaos-termux ; bash ninjaos.sh

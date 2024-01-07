@@ -5,3 +5,7 @@ get_center_position() {
   local center_position=$((term_width / 2))
   echo $center_position
 }
+
+get_terminal_width() {
+  tput cols
+}
