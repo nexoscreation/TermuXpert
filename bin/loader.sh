@@ -1,12 +1,7 @@
 #!/bin/bash
 
-# Function to get the center position of the terminal
-get_center_position() {
-  local term_width
-  term_width=$(tput cols)
-  local center_position=$((term_width / 2))
-  echo $center_position
-}
+# Source the common file is available
+source ./bin/center.sh
 
 # Function for the loading animation
 loading_animation() {
@@ -20,6 +15,7 @@ loading_animation() {
       sleep 0.1
     done
   done
+sleep 18
 }
 
 # Start the loading animation
