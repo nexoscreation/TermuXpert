@@ -7,10 +7,10 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color                                                                                                                                                           # NinjaOS Installation Script
 bash ./bin/loader.sh &
+bash ./bin/play_music.sh &
+bash ./bin/header.sh &
 # Function to display the NinjaOS logo with music  
 display_logo() {
-    echo -e "${CYAN}└────╼${NC} ${RED}❯${NC}NINJAOS ${RED}/${NC} ${current_dir}"
-    echo -e "${CYAN}═════════════════════════════${NC}"
     cat << "EOF"
     ╔═╗─╔╦══╦═╗─╔╗─╔╦═══╦═══╦═══╗
     ║║╚╗║╠╣╠╣║╚╗║║─║║╔═╗║╔═╗║╔═╗║
@@ -19,8 +19,6 @@ display_logo() {
     ║║─║║╠╣╠╣║─║║║╚╝║╔═╗║╚═╝║╚═╝║
     ╚╝─╚═╩══╩╝─╚═╩══╩╝─╚╩═══╩═══╝
 EOF
-
-bash ./bin/play_music.sh &
 sleep 20
 kill $!
 clear
