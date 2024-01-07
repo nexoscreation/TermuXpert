@@ -29,5 +29,4 @@ CYAN='\e[46m'
 WHITE='\e[47m'
 
 # Combinig Styles
-For example, \e[1;31m sets bold red text.
-You can combine different styles and colors.
+red='\e[1;31m'
