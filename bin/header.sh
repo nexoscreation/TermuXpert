@@ -21,7 +21,7 @@ display_header() {
   local line="└────╼❯[ NINJA OS ]/${current_dir}$(printf '─%.0s' $(seq 1 $line_length))"
 
   # Display the header
-  echo -e "${MAGENTA}${Cyan}${line}${Reset}"
+  echo -e "${WHITE}${Cyan}${line}${Reset}"
 }
 
 # Display the header

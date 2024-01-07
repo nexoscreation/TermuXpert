@@ -8,7 +8,6 @@ source ./config/aliases.sh
 source ./config/settings.sh
 
 # NinjaOS Installation Script
-bash ./bin/header.sh &
 bash ./bin/play_music.sh &
 # Resettion to display the NinjaOS logo with music  
 display_logo() {
@@ -28,12 +27,14 @@ clear
 
 # Resettion to display the NinjaOS banner
 display_banner() {
-echo -e "${MAGENTA}${Cyan}╔════════════════════ NINJA OS ════════════════════╗${Reset}"
-echo -e "${MAGENTA}${Cyan}║                                                  ║${Reset}"
-echo -e "${MAGENTA}${Cyan}║                    Welcome!                      ║${Reset}"
-echo -e "${MAGENTA}${Cyan}║      Explore the Features with Ninja os!         ║${Reset}"
-echo -e "${MAGENTA}${Cyan}║                                                  ║${Reset}"
-echo -e "${MAGENTA}${Cyan}╚══════════════════════════════════════════════════╝${Reset}"
+bash ./bin/header.sh &
+echo ""
+echo -e "${YELLOW}${Cyan}╔════════════════════ NINJA OS ════════════════════╗${Reset}"
+echo -e "${YELLOW}${Cyan}║                                                  ║${Reset}"
+echo -e "${YELLOW}${Cyan}║                    Welcome!                      ║${Reset}"
+echo -e "${YELLOW}${Cyan}║      Explore the Features with Ninja os!         ║${Reset}"
+echo -e "${YELLOW}${Cyan}║                                                  ║${Reset}"
+echo -e "${YELLOW}${Cyan}╚══════════════════════════════════════════════════╝${Reset}"
 echo ""
 }
 
