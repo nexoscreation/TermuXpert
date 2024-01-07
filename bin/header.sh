@@ -12,7 +12,7 @@ display_header() {
   local line_length=$((terminal_width - 14 - ${#current_dir}))  # Adjust as needed
 
   # Construct the line with the current directory
-  local line="└────╼❯[ NINJA OS ]/$(pwd)$(printf '─%.0s' $(seq 1 $line_length))"
+  local line="└────╼❯[ NINJA OS ]/$(printf '─%.0s' $(seq 1 $line_length))"
 
   # Display the header
   echo -e "${WHITE}${Green}${line}${Reset}"
