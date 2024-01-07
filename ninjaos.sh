@@ -24,15 +24,32 @@ kill $!
 clear
 }
 
+# Function to get the center position of the terminal
+get_center_position() {
+  local term_width
+  term_width=$(tput cols)
+  local center_position=$((term_width / 2))
+  echo $center_position
+}
+
 # Function to display the NinjaOS banner
 display_banner() {
-echo -e "${CYAN}╔════════════════════ ${GREEN}NINJA OS ${CYAN}════════════════════╗${NC}"
-echo -e "${CYAN}║                                                  ║${NC}"
-echo -e "${CYAN}║                    Welcome!                      ║${NC}"
-echo -e "${CYAN}║      Explore the Features with Ninja os!         ║${NC}"
-echo -e "${CYAN}║                                                  ║${NC}"
-echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
-echo ""
+  local center_position
+  center_position=$(get_center_position)
+
+  # Colors
+  CYAN="\e[1;36m"
+  GREEN="\e[1;32m"
+  NC="\e[0m" # No Color
+
+  # Full-screen border with centered text
+  echo -e "${CYAN}╔$(printf '═%.0s' $(seq 1 $((center_position - 5)))) ${GREEN}NINJA OS ${CYAN}$(printf '═%.0s' $(seq 1 $((center_position - 5))))═╗${NC}"
+  echo -e "${CYAN}║$(printf ' %.0s' $(seq 1 $((center_position - 5))))$(printf ' %.0s' $(seq 1 $((center_position + 15))))$(printf ' %.0s' $(seq 1 $((center_position - 5)))) ║${NC}"
+  echo -e "${CYAN}║$(printf ' %.0s' $(seq 1 $((center_position - 5))))$(printf ' %-22s' "Welcome!")$(printf ' %.0s' $(seq 1 $((center_position - 5)))) ║${NC}"
+  echo -e "${CYAN}║$(printf ' %.0s' $(seq 1 $((center_position - 5))))$(printf ' %-22s' "Explore the Features with Ninja os!")$(printf ' %.0s' $(seq 1 $((center_position - 5)))) ║${NC}"
+  echo -e "${CYAN}║$(printf ' %.0s' $(seq 1 $((center_position - 5))))$(printf ' %.0s' $(seq 1 $((center_position + 15))))$(printf ' %.0s' $(seq 1 $((center_position - 5)))) ║${NC}"
+  echo -e "${CYAN}╚$(printf '═%.0s' $(seq 1 $((center_position - 5)))) ${GREEN}══════════════════════════ ${CYAN}$(printf '═%.0s' $(seq 1 $((center_position - 5))))╝${NC}"
+  echo ""
 }
 
 # Function to display NinjaOS installation steps
