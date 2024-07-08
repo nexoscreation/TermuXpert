@@ -24,7 +24,7 @@ jobs:
       run: |
         version=$(jq -r '.version' < package.json)
         echo "New version: $version"
-        echo "::set-output name=version::$version"
+        echo "version=$version" >> $$GITHUB_OUTPUT
 
     - name: Create Release
       uses: ncipollo/release-action@v1
