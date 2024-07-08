@@ -1,0 +1,27 @@
+{
+  "name": "ninjaos-termux",
+  "version": "1.0.0",
+  "description": "We are macking a termux environment batter",
+  "main": "Install.sh",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexoscreation/ninjaos-termux.git"
+  },
+  "keywords": [
+    "os",
+    "termux",
+    "termux-tool"
+  ],
+  "author": "nexoscreator",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nexoscreation/ninjaos-termux/issues"
+  },
+  "homepage": "https://github.com/nexoscreation/ninjaos-termux#readme"
+}

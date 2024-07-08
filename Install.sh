@@ -19,24 +19,24 @@ install_git() {
 
 clear
 # Main script logic
-echo "NinjaOS Initialization"
+echo "> NinjaOS Initialization"
 
 # Update package lists
-echo "Updating Termux package"
+echo "> Updating Termux package"
 pkg update & 
 
 # Install essential packages
-echo "Installing Nexos package"
+echo "> Installing Nexos package"
 pkg install -y git zsh nodejs & # Add essential packages for your setup
 
 # Install music player
 install_music_player
 
 # Install Git
-echo "Skipping Git inztall"
+echo "> Skipping Git inztall"
 # install_git
 
 # Additional customizations and installations
 # Add more tasks as per your requirements
 
-echo "Initialization complete."
+echo "> Initialization complete."

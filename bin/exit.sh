@@ -20,8 +20,9 @@ echo -e "${CYAN}╚════════════════════�
 echo ""
 echo -e "${GREEN}Saving Changes...${NC}"
 sleep 4
-clear
 echo -e "${GREEN}Shutdowing System...${NC}"
+sleep 4
+clear
 exit
 }
 

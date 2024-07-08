@@ -1,29 +1,24 @@
 #!/bin/colors.sh
 
-# colors.sh
-CYAN='\033[0;36m'
-PINK='\033[1;35m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
-
 # Text Formatting
 Reset='\e[0m'
 Bold='\e[1m'
 Dim='\e[2m'
 Underlined='\e[4m'
 Blinking='\e[5m'
-Inverted='\e[7m'l.
+Inverted='\e[7m'
 
 # Text Colors
 Black='\e[30m'
-Red='\e[31m'
-Green='\e[32m'
+Red='\033[1;31m'
+Green='\033[1;32m'
 Yellow='\e[33m'
 Blue='\e[34m'
 Magenta='\e[35m'
-Cyan='\e[36m'
+Cyan='\033[1;36m'
 White='\e[37m'
+Pink='\033[1;35m'
+Nc='\033[0m' # No Color
 
 # Backgroud Colors
 BLACK='\e[40m' 
