@@ -3,34 +3,37 @@
 # Function to install a music player
 install_music_player() {
     echo "Installing music player..."
-    pkg install -y mpv & # Example: Install MPV media player
+    pkg install -y mpg123 & # Example: Install MPV media player
     # Add more commands as needed for your preferred music player setup
 }
 
 # Function to install Git
 install_git() {
     echo "Installing Git..."
-    pkg install -y git
+    pkg install -y git & 
     # Configure Git if needed
     git config --global user.name "Your Name"
     git config --global user.email "you@example.com"
     # Add more Git configurations or commands as needed
 }
 
-
+clear
 # Main script logic
 echo "NinjaOS Initialization"
 
 # Update package lists
-pkg update
+echo "Updating Termux package"
+pkg update & 
 
 # Install essential packages
-pkg install -y git node zsh  # Add essential packages for your setup
+echo "Installing Nexos package"
+pkg install -y git zsh nodejs & # Add essential packages for your setup
 
 # Install music player
 install_music_player
 
 # Install Git
+echo "Skipping Git inztall"
 # install_git
 
 # Additional customizations and installations
