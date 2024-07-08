@@ -36,4 +36,4 @@ jobs:
           ## Changes
           - Update README.md
         draft: false
-        prerelease: true
+        prerelease: beta
