@@ -1,6 +1,3 @@
-Certainly! Below is a template for a basic README.md file for your NinjaOS project:
-
-```markdown
 # NinjaOS Termux Project
 
 Welcome to the NinjaOS Termux project! This project aims to provide a customized and feature-rich Termux setup with a unique theme, banner, and essential configurations.
@@ -64,6 +61,3 @@ Contributions are welcome! If you have ideas for improvements or new features, f
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
-
-Make sure to replace "yourusername" with your actual GitHub username or the username you plan to use for hosting the project. Customize the content further based on specific details about your project, features, and usage instructions.
