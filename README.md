@@ -1,63 +1,65 @@
-# TermuXpert: Provides expert-level automation, customization, and file system control for Termux.
+# **TermuXpert**
 
-Welcome to the NinjaOS Termux project! This project aims to provide a customized and feature-rich Termux setup with a unique theme, banner, and essential configurations.
+**TermuXpert** is a powerful tool designed to optimize and automate your Termux experience with a wide range of features, utilities, from system monitoring to terminal customization and development setup.
 
-## Features
+## **Features**
 
-- Custom ASCII art banner for Termux
-- Stylish Zsh and Bash themes
-- Custom color configurations
-- Convenient menu for necessary setup options
-- Tools for easy installation and updating
+- Automated Backups & Restores
+- Personal Server Setup
+- System Monitoring Tools
+- Network Utilities
+- Terminal Customization & Themes
+- Development Environment Setup
+- Task Scheduling & Automation
+- System Information
+- Package Management
 
-## Directory Structure
-
-```plaintext
-NinjaOS/
-├── banners/
-│   └── banner.txt
-├── config/
-│   ├── colors.properties
-│   ├── aliases.sh
-│   └── settings.sh
-├── themes/
-│   ├── zsh/
-│   │   └── ninja-theme.zsh
-│   └── bash/
-│       └── ninja-theme.bash
-├── tools/
-│   ├── install.sh
-│   ├── zsh-setup.sh
-│   ├── bash-setup.sh
-│   └── update.sh
-├── README.md
-├── LICENSE
-└── ninjaos-menu.sh
-```
-
-## Usage
+## **Installation**
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/NinjaOS-Termux.git
-   cd NinjaOS-Termux
-   ```
+   git clone https://github.com/yourusername/ninjaos-termux.git
+  ```
 
-2. Customize configurations in the `config/` and `themes/` directories.
-
-3. Run the main menu script:
+2. Navigate to the TermuXpert directory:
 
    ```bash
-   ./ninjaos-menu.sh
+   cd ninjaos-termux
    ```
 
-4. Choose options for necessary setup, theme selection, etc.
+3. Make the scripts executable:
 
-## Contributions
+   ```bash
+   chmod +x install.sh
+   ```
 
-Contributions are welcome! If you have ideas for improvements or new features, feel free to submit issues or pull requests.
+4. Run the Installation Setup One time
+   ```bash
+   bash install.sh
+   ```
+5. Run the main TermuXpert menu:
 
-## License
+   ```bash
+   bash ./bin/termuxpert.sh
+   ```
+
+6. Follow the on-screen options for necessary setup, theme selection, and more.
+
+## **Usage**
+
+To start using **TermuXpert**, simply run:
+
+```bash
+./bin/termuxpert.sh
+```
+
+From there, select from the menu to automate backups, customize your terminal, set up servers, and much more.
+
+## **Contributions**
+
+We welcome contributions! If you have ideas to improve TermuXpert or want to add new features, feel free to open issues or submit pull requests.
+
+## **License**
 
 This project is licensed under the [MIT License](LICENSE).
