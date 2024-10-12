@@ -20,7 +20,7 @@
 
    ```bash
    git clone https://github.com/yourusername/ninjaos-termux.git
-  ```
+   ```
 
 2. Navigate to the TermuXpert directory:
 
@@ -38,6 +38,7 @@
    ```bash
    bash install.sh
    ```
+
 5. Run the main TermuXpert menu:
 
    ```bash

@@ -41,6 +41,7 @@ while true; do
             else
             echo "Powerlevel10k theme is already installed."
             fi
+            ;;
         5)
             if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
             echo "Installing zsh-syntax-highlighting..."
@@ -49,6 +50,7 @@ while true; do
             else
             echo "zsh-syntax-highlighting is already installed."
             fi
+            ;;
         6)
             pkg install vim -y
             echo "set number\nset autoindent\nset expandtab\nset tabstop=4\nset shiftwidth=4" > ~/.vimrc
