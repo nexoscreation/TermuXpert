@@ -1,30 +1,70 @@
 #!/bin/bash
-# TermuXpert - Personal Server Setup Script
 
-clear
-echo "======================================"
-echo "        TermuXpert Server Setup       "
-echo "======================================"
+# Color definitions
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+RESET='\033[0m'
 
-# Update and install necessary packages
-echo "Updating packages and installing necessary tools..."
-pkg update -y && pkg upgrade -y
-pkg install -y openssh apache2
+echo -e "${YELLOW}===== Termux Personal Server Setup =====${RESET}"
 
-# Start the Apache web server
-echo "Starting Apache server..."
-apachectl start
+# Function to install a package if it's not already installed
+install_package() {
+    if ! command -v $1 &> /dev/null; then
+        echo "Installing $1..."
+        pkg install -y $1
+    else
+        echo "$1 is already installed."
+    fi
+}
 
-# Display SSH connection instructions
-echo "Your personal server is now set up!"
-echo "To access it, use the following SSH command:"
-echo "ssh your-username@$(ip addr show wlan0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)"
+# Install necessary packages
+install_package nginx
+install_package php
+install_package mariadb
 
-echo "Apache server is running on port 8080. Visit http://localhost:8080"
+# Start MariaDB
+echo "Starting MariaDB..."
+mysqld_safe &
 
+# Configure Nginx
+echo "Configuring Nginx..."
+mkdir -p "$HOME/webroot"
+echo "<?php phpinfo(); ?>" > "$HOME/webroot/index.php"
 
-#!/bin/bash
+cat > "$PREFIX/etc/nginx/nginx.conf" << EOF
+worker_processes  1;
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+    server {
+        listen       8080;
+        server_name  localhost;
+        root         $HOME/webroot;
+        index        index.html index.htm index.php;
+        location ~ \.php$ {
+            fastcgi_pass   unix:$PREFIX/var/run/php-fpm.sock;
+            fastcgi_index  index.php;
+            include        fastcgi.conf;
+        }
+    }
+}
+EOF
 
-# TermuXpert Server Setup
+# Start Nginx
+echo "Starting Nginx..."
+nginx
 
+# Start PHP-FPM
+echo "Starting PHP-FPM..."
+php-fpm
 
+echo -e "${GREEN}Personal server setup complete!${RESET}"
+echo -e "Your web server is now running. You can access it at:"
+echo -e "${YELLOW}http://localhost:8080${RESET}"
+echo "Place your web files in $HOME/webroot"
