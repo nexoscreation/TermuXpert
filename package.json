@@ -1,13 +1,13 @@
 {
-  "name": "ninjaos-termux",
-  "version": "1.0.0",
-  "description": "We are macking a termux environment batter",
-  "main": "Install.sh",
+  "name": "TermuXpert",
+  "version": "0.0.5",
+  "description": "A Termux package for expert-level automation, customization, and system management.",
+  "main": "nexos.sh",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "npm test"
+    "start": "bash install.sh"
   },
   "repository": {
     "type": "git",

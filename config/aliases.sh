@@ -1,4 +1,4 @@
-# Aliases for NinjaOS
+# Aliases for TermuXpert
 
 # Navigation
 alias ..='cd ..'
@@ -6,12 +6,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# ninjaos 
-alias nos='cd ~/ninjaos-termux/'
-alias nosbin='cd ~/ninjaos-termux/bin/'
-alias noscon='cd ~/ninjaos-termux/config/'
-alias nosdat='cd ~/ninjaos-termux/data/'
-alias nosthe='cd ~/ninjaos-termux/themes/'
+# TermuXpert paths
+alias termuxpert='cd ~/TermuXpert'
+alias termuxpertbin='cd ~/TermuXpert/bin'
+alias termuxpertconfig='cd ~/TermuXpert/config'
 
 # List files with color and details
 alias l='ls -lh --color=auto'
@@ -36,8 +34,9 @@ alias c='clear'
 alias h='history'
 alias reload='source ~/.bashrc'
 
-# Custom aliases
-# Add your own aliases here based on your preferences
+# Custom commands
+alias update='pkg update && pkg upgrade'
+alias cls='clear'
 
 # Example:
 # alias myalias='some_command --with-options'

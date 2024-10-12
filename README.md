@@ -1,4 +1,4 @@
-# NinjaOS Termux Project
+# TermuXpert: Provides expert-level automation, customization, and file system control for Termux.
 
 Welcome to the NinjaOS Termux project! This project aims to provide a customized and feature-rich Termux setup with a unique theme, banner, and essential configurations.
 

@@ -1,42 +1,23 @@
 #!/bin/bash
 
-# Function to install a music player
-install_music_player() {
-    echo "Installing music player..."
-    pkg install -y mpg123 & # Example: Install MPV media player
-    # Add more commands as needed for your preferred music player setup
-}
-
-# Function to install Git
-install_git() {
-    echo "Installing Git..."
-    pkg install -y git & 
-    # Configure Git if needed
-    git config --global user.name "Your Name"
-    git config --global user.email "you@example.com"
-    # Add more Git configurations or commands as needed
-}
+# TermuXpert Installation Script
 
 clear
-# Main script logic
-echo "> NinjaOS Initialization"
+echo "======================================"
+echo "    Installing TermuXpert Package     "
+echo "======================================"
 
-# Update package lists
-echo "> Updating Termux package"
-pkg update & 
+# Create necessary directories
+mkdir -p ~/ninjaos-termux/bin
+mkdir -p ~/ninjaos-termux/config
+mkdir -p ~/ninjaos-termux/data/backups
 
-# Install essential packages
-echo "> Installing Nexos package"
-pkg install -y git zsh nodejs & # Add essential packages for your setup
+# Copy the scripts to the Termux home directory
+cp -r bin/* ~/ninjaos-termux/bin/
+cp -r config/* ~/ninjaos-termux/config/
 
-# Install music player
-install_music_player
+# Make the scripts executable
+chmod +x ~/ninjaos-termux/bin/*.sh
 
-# Install Git
-echo "> Skipping Git inztall"
-# install_git
-
-# Additional customizations and installations
-# Add more tasks as per your requirements
-
-echo "> Initialization complete."
+echo "TermuXpert successfully installed!"
+echo "Run '~/ninjaos-termux/bin/main.sh' to start using TermuXpert."
