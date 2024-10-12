@@ -1,20 +1,20 @@
 #!/bin/bash
-# TermuXpert - System Monitoring Tools
+# TermuXpert - System Monitoring Script
 
 # Display CPU, Memory, and Disk Usage
-echo "==============================="
-echo "      System Monitoring"
-echo "==============================="
-echo "CPU Info:"
+clear
+echo "======================================"
+echo "     TermuXpert System Monitoring     "
+echo "======================================"
+
+echo "CPU Usage:"
 lscpu
 echo
 echo "Memory Usage:"
-free -h
+free -h m
 echo
-echo "Disk Usage:"
+echo "Disk Storage:"
 df -h
 echo
-
-# Network information
-echo "Network Information:"
+echo "Network Usage:"
 ifconfig

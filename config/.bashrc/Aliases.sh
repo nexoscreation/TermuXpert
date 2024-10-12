@@ -1,27 +1,33 @@
 # Aliases for TermuXpert
 
+# TermuXpert paths
+alias termuxpert='cd ~/TermuXpert'
+alias termuxpertbin='cd ~/TermuXpert/bin'
+alias termuxpertconfig='cd ~/TermuXpert/config'
+
 # Navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# TermuXpert paths
-alias termuxpert='cd ~/TermuXpert'
-alias termuxpertbin='cd ~/TermuXpert/bin'
-alias termuxpertconfig='cd ~/TermuXpert/config'
+# List directories
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
-# List files with color and details
-alias l='ls -lh --color=auto'
-alias ll='ls -lha --color=auto'
+# System
+alias update='pkg update && pkg upgrade'
+alias clean='pkg clean'
 
-# Common Git aliases
+# Git
 alias g='git'
 alias gs='git status'
 alias ga='git add'
-alias gc='git commit'
-alias gp='git pull'
+alias gc='git commit -m'
+alias gp='git push'
 alias gpush='git push'
+alias gl='git log --oneline --graph --decorate'
 
 # Docker aliases
 alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
@@ -32,11 +38,11 @@ alias myip='curl ipinfo.io/ip'
 # Miscellaneous
 alias c='clear'
 alias h='history'
+alias j='jobs -l'
 alias reload='source ~/.bashrc'
 
 # Custom commands
 alias update='pkg update && pkg upgrade'
-alias cls='clear'
 
 # Example:
 # alias myalias='some_command --with-options'

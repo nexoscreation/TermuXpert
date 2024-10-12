@@ -7,6 +7,20 @@ echo "======================================"
 echo "    Installing TermuXpert Package     "
 echo "======================================"
 
+packages=(
+    "git"
+    "nodejs"
+    "vim"
+)
+
+for package in "${packages[@]}"
+do
+    echo "Installing $package..."
+    pkg install -y "$package"
+done
+
+echo "All packages installed successfully!"
+
 # Create necessary directories
 mkdir -p ~/ninjaos-termux/bin
 mkdir -p ~/ninjaos-termux/config

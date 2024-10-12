@@ -1,6 +1,11 @@
 #!/bin/bash
 # TermuXpert - Personal Server Setup Script
 
+clear
+echo "======================================"
+echo "        TermuXpert Server Setup       "
+echo "======================================"
+
 # Update and install necessary packages
 echo "Updating packages and installing necessary tools..."
 pkg update -y && pkg upgrade -y
@@ -16,3 +21,10 @@ echo "To access it, use the following SSH command:"
 echo "ssh your-username@$(ip addr show wlan0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)"
 
 echo "Apache server is running on port 8080. Visit http://localhost:8080"
+
+
+#!/bin/bash
+
+# TermuXpert Server Setup
+
+
