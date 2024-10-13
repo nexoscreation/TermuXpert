@@ -24,6 +24,10 @@ while true; do
             ping -c 4 $ping_host
             ;;
         3)
+            if ! command -v nslookup &> /dev/null; then
+                echo "nslookup is not installed. Installing..."
+                pkg install nslookup -y
+            fi
             read -p "Enter domain name for DNS lookup: " domain
             nslookup $domain
             ;;
@@ -38,11 +42,15 @@ while true; do
         5)
             if ! command -v speedtest-cli &> /dev/null; then
                 echo "speedtest-cli is not installed. Installing..."
-                pip install speedtest-cli
+                pkg install speedtest-cli -y
             fi
             speedtest-cli
             ;;
         6)
+            if ! command -v traceroute &> /dev/null; then
+                echo "traceroute is not installed. Installing..."
+                pkg install traceroute -y
+            fi
             read -p "Enter hostname or IP for traceroute: " trace_host
             traceroute $trace_host
             ;;

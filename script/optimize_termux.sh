@@ -31,7 +31,7 @@ rm -rf $HOME/.termux/boot
 
 # Trim unused space
 echo -e "${GREEN}Trimming unused space...${RESET}"
-fstrim -v /data
+# fstrim -v /data
 
 # Optimize bash history
 echo -e "${GREEN}Optimizing bash history...${RESET}"
