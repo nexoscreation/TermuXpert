@@ -25,12 +25,12 @@ while true; do
             ;;
         2)
             echo "Setting a custom color scheme..."
-            cp ../config/colors.properties ~/.termux/colors.properties
+            cp ./../config/colors.properties ~/.termux/colors.properties
             echo -e "${GREEN}Custom color scheme set. Restart Termux to apply changes.${RESET}"
             ;;
         3)
             echo "Configuring extra keys..."
-            cp ../config/termux.properties ~/.termux/termux.properties
+            cp ./../config/termux.properties ~/.termux/termux.properties
             echo -e "${GREEN}Extra keys configured. Restart Termux to apply changes.${RESET}"
             ;;
         4)

@@ -43,7 +43,7 @@ ln -s "$INSTALL_DIR/bin/termuxpert.sh" "$PREFIX/bin/termuxpert"
 # Install dependencies
 echo "Installing dependencies..."
 pkg update -y
-pkg install -y git curl wget 
+pkg install -y git curl wget jq
 
 echo -e "${GREEN}TermuXpert has been successfully installed!${RESET}"
 echo "You can now run 'termuxpert' from anywhere to start the tool."
