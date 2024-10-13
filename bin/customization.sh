@@ -8,14 +8,14 @@ RESET='\033[0m'
 
 while true; do
     echo -e "${YELLOW}Termux Customization:${RESET}"
-    echo "1. Install Zsh and Oh My Zsh"
-    echo "2. Set custom color scheme"
-    echo "3. Configure extra keys"
-    echo "4. Install and configure Powerlevel10k theme"
-    echo "5. Install and configure syntax highlighting"
-    echo "6. Install and configure Vim"
-    echo "7. Install and configure Tmux"
-    echo "8. Return to main menu"
+    echo -e "${CYAN}1.${RESET} Install Zsh and Oh My Zsh"
+    echo -e "${CYAN}2.${RESET} Set custom color scheme"
+    echo -e "${CYAN}3.${RESET} Configure extra keys"
+    echo -e "${CYAN}4.${RESET} Install and configure Powerlevel10k theme"
+    echo -e "${CYAN}5.${RESET} Install and configure syntax highlighting"
+    echo -e "${CYAN}6.${RESET} Install and configure Vim"
+    echo -e "${CYAN}7.${RESET} Install and configure Tmux"
+    echo -e "${CYAN}8.${RESET} Return to main menu"
     read -p "Select an option: " custom_choice
 
     case $custom_choice in
@@ -25,12 +25,12 @@ while true; do
             ;;
         2)
             echo "Setting a custom color scheme..."
-            cp ./../config/colors.properties ~/.termux/colors.properties
+            cp ~/termuxpert/config/colors.properties ~/.termux/colors.properties
             echo -e "${GREEN}Custom color scheme set. Restart Termux to apply changes.${RESET}"
             ;;
         3)
             echo "Configuring extra keys..."
-            cp ./../config/termux.properties ~/.termux/termux.properties
+            cp ~/termuxpert/config/termux.properties ~/.termux/termux.properties
             echo -e "${GREEN}Extra keys configured. Restart Termux to apply changes.${RESET}"
             ;;
         4)
@@ -65,6 +65,6 @@ while true; do
         *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
     esac
     echo ""
-    read -n 1 -s -r -p "Press any key to continue..."
+    read -n 1 -s -r -p "$(echo -e ${RED}Press any key to continue...${RESET} )"
     echo ""
 done

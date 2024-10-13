@@ -16,8 +16,8 @@ RESET='\033[0m'
 display_header() {
     clear
     echo -e "${BLUE}╔════════════════════════════════════════╗${RESET}"
-    echo -e "${BLUE}║${WHITE}        Welcome to TermuXpert         ${BLUE}║${RESET}"
-    echo -e "${BLUE}║${CYAN}  Advanced Termux Management Tool    ${BLUE}║${RESET}"
+    echo -e "${BLUE}║${WHITE}        Welcome to TermuXpert           ${BLUE}║${RESET}"
+    echo -e "${BLUE}║${CYAN}  Advanced Termux Management Tool       ${BLUE}║${RESET}"
     echo -e "${BLUE}╚════════════════════════════════════════╝${RESET}"
     echo ""
 }
@@ -59,5 +59,5 @@ while true; do
         *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
     esac
     echo ""
-    read -n 1 -s -r -p "Press any key to continue..."
+    read -n 1 -s -r -p "$(echo -e ${RED}Press any key to continue...${RESET} )"
 done

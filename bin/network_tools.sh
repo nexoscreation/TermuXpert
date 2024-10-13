@@ -8,13 +8,13 @@ RESET='\033[0m'
 
 while true; do
     echo -e "${YELLOW}Network Tools:${RESET}"
-    echo "1. Check IP address"
-    echo "2. Ping a host"
-    echo "3. DNS lookup"
-    echo "4. Port scan"
-    echo "5. Network speed test"
-    echo "6. Traceroute"
-    echo "7. Return to main menu"
+    echo -e "${CYAN}1.${RESET} Check IP address"
+    echo -e "${CYAN}2.${RESET} Ping a host"
+    echo -e "${CYAN}3.${RESET} DNS lookup"
+    echo -e "${CYAN}4.${RESET} Port scan"
+    echo -e "${CYAN}5.${RESET} Network speed test"
+    echo -e "${CYAN}6.${RESET} Traceroute"
+    echo -e "${CYAN}7.${RESET} Return to main menu"
     read -p "Select an option: " net_choice
 
     case $net_choice in
@@ -25,8 +25,8 @@ while true; do
             ;;
         3)
             if ! command -v nslookup &> /dev/null; then
-                echo "nslookup is not installed. Installing..."
-                pkg install nslookup -y
+                echo "dnsutils is not installed. Installing..."
+                pkg install dnsutils -y
             fi
             read -p "Enter domain name for DNS lookup: " domain
             nslookup $domain
@@ -40,11 +40,7 @@ while true; do
             nmap $scan_host
             ;;
         5)
-            if ! command -v speedtest-cli &> /dev/null; then
-                echo "speedtest-cli is not installed. Installing..."
-                pkg install speedtest-cli -y
-            fi
-            speedtest-cli
+            echo "This tool currently unavailable."
             ;;
         6)
             if ! command -v traceroute &> /dev/null; then
@@ -58,6 +54,6 @@ while true; do
         *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
     esac
     echo ""
-    read -n 1 -s -r -p "Press any key to continue..."
+    read -n 1 -s -r -p "$(echo -e ${RED}Press any key to continue...${RESET} )"
     echo ""
 done

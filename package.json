@@ -1,6 +1,6 @@
 {
   "name": "TermuXpert",
-  "version": "0.4.9",
+  "version": "0.5.1",
   "description": "A Termux package for expert-level automation, customization, and system management.",
   "main": "nexos.sh",
   "directories": {

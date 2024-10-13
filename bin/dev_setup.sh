@@ -8,13 +8,13 @@ RESET='\033[0m'
 
 while true; do
     echo -e "${YELLOW}Development Environment Setup:${RESET}"
-    echo "1. Install Python development tools"
-    echo "2. Install Node.js and npm"
-    echo "3. Install Git and configure"
-    echo "4. Install C/C++ development tools"
-    echo "5. Install Ruby and Rails"
-    echo "6. Install Java development tools"
-    echo "7. Return to main menu"
+    echo -e "${CYAN}1.${RESET} Install Python development tools"
+    echo -e "${CYAN}2.${RESET} Install Node.js and npm"
+    echo -e "${CYAN}3.${RESET} Install Git and configure"
+    echo -e "${CYAN}4.${RESET} Install C/C++ development tools"
+    echo -e "${CYAN}5.${RESET} Install Ruby and Rails"
+    echo -e "${CYAN}6.${RESET} Install Java development tools"
+    echo -e "${CYAN}1.${RESET} Return to main menu"
     read -p "Select an option: " dev_choice
 
     case $dev_choice in
@@ -56,6 +56,6 @@ while true; do
         *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
     esac
     echo ""
-    read -n 1 -s -r -p "Press any key to continue..."
+    read -n 1 -s -r -p "$(echo -e ${RED}Press any key to continue...${RESET} )"
     echo ""
 done

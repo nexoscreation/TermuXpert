@@ -16,8 +16,8 @@ while true; do
     echo ""
     
     echo -e "${CYAN}CPU Usage:${RESET}"
-    top -bn1 | grep "Cpu(s)" | sed "s/.*, *$$[0-9.]*$$%* id.*/\1/" | awk '{print 100 - $1"%"}'
-    echo ""
+    top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}'
+    echo " "
     
     echo -e "${CYAN}Memory Usage:${RESET}"
     free -m | awk 'NR==2{printf "Total: %sMB, Used: %sMB, Free: %sMB\n", $2,$3,$4 }'
@@ -28,7 +28,7 @@ while true; do
     echo ""
     
     echo -e "${CYAN}Network Statistics:${RESET}"
-    ifconfig | grep -E "RX packets|TX packets"
+    ifconfig | grep -E "RX packets|TX packets" | awk '{print $1, $2, $3, $4, $5}' 
     echo ""
     
     echo -e "${CYAN}Top 5 CPU-consuming processes:${RESET}"
@@ -36,4 +36,6 @@ while true; do
     echo ""
     
     sleep 2
+    
 done
+

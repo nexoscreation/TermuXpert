@@ -11,11 +11,11 @@ mkdir -p "$BACKUP_DIR"
 
 while true; do
     echo -e "${YELLOW}Backup and Restore:${RESET}"
-    echo "1. Create a new backup"
-    echo "2. List available backups"
-    echo "3. Restore from backup"
-    echo "4. Delete a backup"
-    echo "5. Return to main menu"
+    echo -e "${CYAN}1.${RESET} Create a new backup"
+    echo -e "${CYAN}2.${RESET} List available backups"
+    echo -e "${CYAN}3.${RESET} Restore from backup"
+    echo -e "${CYAN}4.${RESET} Delete a backup"
+    echo -e "${CYAN}5.${RESET} Return to main menu"
     read -p "Select an option: " backup_choice
 
     case $backup_choice in
@@ -60,6 +60,6 @@ while true; do
         *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
     esac
     echo ""
-    read -n 1 -s -r -p "Press any key to continue..."
+    read -n 1 -s -r -p "$(echo -e ${RED}Press any key to continue...${RESET} )"
     echo ""
 done

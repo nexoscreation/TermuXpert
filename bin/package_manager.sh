@@ -8,14 +8,14 @@ RESET='\033[0m'
 
 while true; do
     echo -e "${YELLOW}Package Management:${RESET}"
-    echo "1. Update package lists"
-    echo "2. Upgrade installed packages"
-    echo "3. Install a new package"
-    echo "4. Remove a package"
-    echo "5. List installed packages"
-    echo "6. Search for a package"
-    echo "7. Clean package cache"
-    echo "8. Return to main menu"
+    echo -e "${CYAN}1.${RESET} Update package lists"
+    echo -e "${CYAN}2.${RESET} Upgrade installed packages"
+    echo -e "${CYAN}3.${RESET} Install a new package"
+    echo -e "${CYAN}4.${RESET} Remove a package"
+    echo -e "${CYAN}5.${RESET} List installed packages"
+    echo -e "${CYAN}6.${RESET} Search for a package"
+    echo -e "${CYAN}7.${RESET} Clean package cache"
+    echo -e "${CYAN}8.${RESET} Return to main menu"
     read -p "Select an option: " pkg_choice
 
     case $pkg_choice in
@@ -30,6 +30,6 @@ while true; do
         *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
     esac
     echo ""
-    read -n 1 -s -r -p "Press any key to continue..."
+    read -n 1 -s -r -p "$(echo -e ${RED}Press any key to continue...${RESET} )"
     echo ""
 done
