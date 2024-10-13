@@ -1,0 +1,56 @@
+# TermuXpert custom Bash configuration
+
+# Set a custom prompt
+PS1='\[\033[1;34m\]\w\[\033[0m\] \[\033[1;32m\]>\[\033[0m\] '
+
+# Aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias c='clear'
+alias update='pkg update && pkg upgrade'
+alias install='pkg install'
+alias remove='pkg uninstall'
+alias search='pkg search'
+
+# Environment variables
+export EDITOR='nano'
+export VISUAL='nano'
+
+# Add bin directory to PATH
+export PATH="$HOME/termuxpert/bin:$PATH"
+
+# Enable command-line completion
+if [ -f /data/data/com.termux/files/usr/share/bash-completion/bash_completion ]; then
+. /data/data/com.termux/files/usr/share/bash-completion/bash_completion
+fi
+
+# Function to quickly create and enter a directory
+mkcd() {
+mkdir -p "$1" && cd "$1"
+}
+
+# Function to extract various archive formats
+extract() {
+if [ -f $1 ] ; then
+case $1 in
+*.tar.bz2) tar xjf $1 ;;
+*.tar.gz) tar xzf $1 ;;
+*.bz2) bunzip2 $1 ;;
+*.rar) unrar e $1 ;;
+*.gz) gunzip $1 ;;
+*.tar) tar xf $1 ;;
+*.tbz2) tar xjf $1 ;;
+*.tgz) tar xzf $1 ;;
+*.zip) unzip $1 ;;
+*.Z) uncompress $1 ;;
+*.7z) 7z x $1 ;;
+*) echo "'$1' cannot be extracted via extract()" ;;
+esac
+else
+echo "'$1' is not a valid file"
+fi
+}
+
+# Welcome message
+echo "Welcome to TermuXpert! Type 'termuxpert' to start the main menu."

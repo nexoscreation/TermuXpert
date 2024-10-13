@@ -1,6 +1,6 @@
 {
   "name": "TermuXpert",
-  "version": "0.3.5",
+  "version": "0.4.6",
   "description": "A Termux package for expert-level automation, customization, and system management.",
   "main": "nexos.sh",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nexoscreation/ninjaos-termux.git"
+    "url": "git+https://github.com/nexoscreation/TermuXpert.git"
   },
   "keywords": [
     "os",
@@ -21,7 +21,7 @@
   "author": "nexoscreator",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nexoscreation/ninjaos-termux/issues"
+    "url": "https://github.com/nexoscreation/TermuXpert/issues"
   },
-  "homepage": "https://github.com/nexoscreation/ninjaos-termux#readme"
+  "homepage": "https://github.com/nexoscreation/TermuXpert#readme"
 }

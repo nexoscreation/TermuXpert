@@ -1,6 +1,6 @@
 # **TermuXpert**
 
-**TermuXpert** is a powerful tool designed to optimize and automate your Termux experience with a wide range of features, utilities, from system monitoring to terminal customization and development setup.
+**TermuXpert** is an advanced Termux management tool that provides a suite of utilities to enhance your Termux experience on Android devices. It offers features for system management, development, security, and productivity.
 
 ## **Features**
 
@@ -16,16 +16,11 @@
 
 ## **Installation**
 
-1. Clone the repository:
+To install TermuXpert, run the following commands in Termux:
 
+1. Add files:
    ```bash
-   git clone https://github.com/yourusername/ninjaos-termux.git
-   ```
-
-2. Navigate to the TermuXpert directory:
-
-   ```bash
-   cd ninjaos-termux
+   curl -O https://raw.githubusercontent.com/nexoscreation/termuxpert/main/install
    ```
 
 3. Make the scripts executable:
@@ -36,26 +31,30 @@
 
 4. Run the Installation Setup One time
    ```bash
-   bash install.sh
+   ./install.sh
    ```
 
 5. Run the main TermuXpert menu:
 
    ```bash
-   bash ./bin/termuxpert.sh
+   bash ./termuxpert.sh
    ```
 
 6. Follow the on-screen options for necessary setup, theme selection, and more.
 
 ## **Usage**
-
-To start using **TermuXpert**, simply run:
+After installation, you can start **TermuXpert** by running:
 
 ```bash
-./bin/termuxpert.sh
+termuxpert
 ```
+This will open the main menu, where you can access all the features of TermuXpert.
 
-From there, select from the menu to automate backups, customize your terminal, set up servers, and much more.
+## **Documentation**
+
+For detailed information on how to use TermuXpert, please refer to the <a href="docs/user_guide.md" className="text-blue-600 hover:underline">User Guide</a>. 
+
+If you're interested in contributing to the project, check out the <a href="docs/developer_guide.md" className="text-blue-600 hover:underline">Developer Guide</a>
 
 ## **Contributions**
 
