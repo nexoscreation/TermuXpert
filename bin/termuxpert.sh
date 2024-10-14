@@ -99,10 +99,10 @@ check_for_updates() {
     fi
 }
 
+
 # Main loop
 while true; do
     display_header
-    check_for_updates
     display_menu
     get_choice
     case $choice in
