@@ -14,7 +14,7 @@ NEON_PINK='\033[38;2;255;20;147m'
 RESET='\033[0m'
 
 # Script directory
-SCRIPT_DIR="$(cd "$(dirname "$HOME/termuxpert")" && pwd)"
+SCRIPT_DIR=""$HOME/termuxpert/bin"
 
 # Function to display the header
 display_header() {
