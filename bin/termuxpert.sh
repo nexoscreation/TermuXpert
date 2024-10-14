@@ -10,18 +10,25 @@ BLUE='\033[0;34m'
 MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 WHITE='\033[1;37m'
+NEON_PINK='\033[38;2;255;20;147m'
 RESET='\033[0m'
 
 # Script directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$HOME/termuxpert")" && pwd)"
 
 # Function to display the header
 display_header() {
     clear
-    echo -e "${BLUE}╔════════════════════════════════════════╗${RESET}"
-    echo -e "${BLUE}║${WHITE}        Welcome to TermuXpert           ${BLUE}║${RESET}"
-    echo -e "${BLUE}║${CYAN}  Advanced Termux Management Tool       ${BLUE}║${RESET}"
-    echo -e "${BLUE}╚════════════════════════════════════════╝${RESET}"
+    echo -e "${NEON_PINK}"
+    echo "  _______                      __  __                  _   "
+    echo " |__   __|                    |  \/  |                | |  "
+    echo "    | | ___ _ __ _ __ ___  _  | \  / |_ __   ___ _ __ | |_ "
+    echo "    | |/ _ \ '__| '_ \` _ \| | | |\/| | '_ \ / _ \ '__|| __|"
+    echo "    | |  __/ |  | | | | | | | | |  | | |_) |  __/ |   | |_ "
+    echo "    |_|\___|_|  |_| |_| |_|_| |_|  |_| .__/ \___|_|    \__|"
+    echo "                                     | |                   "
+    echo "                                     |_|                   "
+    echo -e "${RESET}"
     echo ""
 }
 

@@ -1,59 +1,108 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # Color definitions
-RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+RED='\033[0;31m'
+CYAN='\033[0;36m'
 RESET='\033[0m'
 
-while true; do
-    echo -e "${YELLOW}Network Tools:${RESET}"
-    echo -e "${CYAN}1.${RESET} Check IP address"
-    echo -e "${CYAN}2.${RESET} Ping a host"
-    echo -e "${CYAN}3.${RESET} DNS lookup"
-    echo -e "${CYAN}4.${RESET} Port scan"
-    echo -e "${CYAN}5.${RESET} Network speed test"
-    echo -e "${CYAN}6.${RESET} Traceroute"
-    echo -e "${CYAN}7.${RESET} Return to main menu"
-    read -p "Select an option: " net_choice
+# Function to print colored output
+print_color() {
+    echo -e "${1}${2}${RESET}"
+}
 
-    case $net_choice in
-        1) echo "IP Address: $(curl -s ifconfig.me)" ;;
-        2) 
-            read -p "Enter hostname or IP to ping: " ping_host
-            ping -c 4 $ping_host
-            ;;
-        3)
-            if ! command -v nslookup &> /dev/null; then
-                echo "dnsutils is not installed. Installing..."
-                pkg install dnsutils -y
-            fi
-            read -p "Enter domain name for DNS lookup: " domain
-            nslookup $domain
-            ;;
-        4)
-            if ! command -v nmap &> /dev/null; then
-                echo "nmap is not installed. Installing..."
-                pkg install nmap -y
-            fi
-            read -p "Enter IP address or hostname to scan: " scan_host
-            nmap $scan_host
-            ;;
-        5)
-            echo "This tool currently unavailable."
-            ;;
-        6)
-            if ! command -v traceroute &> /dev/null; then
-                echo "traceroute is not installed. Installing..."
-                pkg install traceroute -y
-            fi
-            read -p "Enter hostname or IP for traceroute: " trace_host
-            traceroute $trace_host
-            ;;
-        7) exit 0 ;;
-        *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
-    esac
-    echo ""
-    read -n 1 -s -r -p "$(echo -e ${RED}Press any key to continue...${RESET} )"
-    echo ""
-done
+# Function to check IP address
+check_ip() {
+    print_color "$CYAN" "IP Address:"
+    curl -s ifconfig.me
+    echo
+}
+
+# Function to ping a host
+ping_host() {
+    read -p "Enter hostname or IP to ping: " host
+    print_color "$YELLOW" "Pinging $host..."
+    ping -c 4 "$host"
+}
+
+# Function to perform DNS lookup
+dns_lookup() {
+    read -p "Enter domain name for DNS lookup: " domain
+    print_color "$CYAN" "DNS Lookup for $domain:"
+    nslookup "$domain"
+}
+
+# Function to scan ports
+port_scan() {
+    if ! command -v nmap &> /dev/null; then
+        print_color "$YELLOW" "nmap is not installed. Installing..."
+        pkg install nmap -y
+    fi
+    read -p "Enter IP address or hostname to scan: " target
+    print_color "$YELLOW" "Scanning ports for $target..."
+    nmap "$target"
+}
+
+# Function to perform a network speed test
+speed_test() {
+    if ! command -v speedtest-cli &> /dev/null; then
+        print_color "$YELLOW" "speedtest-cli is not installed. Installing..."
+        pip install speedtest-cli
+    fi
+    print_color "$YELLOW" "Performing speed test..."
+    speedtest-cli
+}
+
+# Function to perform traceroute
+traceroute() {
+    read -p "Enter hostname or IP for traceroute: " host
+    print_color "$YELLOW" "Performing traceroute to $host..."
+    traceroute "$host"
+}
+
+# Function to show network interfaces
+show_interfaces() {
+    print_color "$CYAN" "Network Interfaces:"
+    ifconfig
+}
+
+# Main menu
+show_menu() {
+    clear
+    print_color "$CYAN" "Network Tools"
+    echo "1. Check IP address"
+    echo "2. Ping a host"
+    echo "3. DNS lookup"
+    echo "4. Port scan"
+    echo "5. Network speed test"
+    echo "6. Traceroute"
+    echo "7. Show network interfaces"
+    echo "8. Return to main menu"
+    echo
+    read -p "Enter your choice [1-8]: " choice
+}
+
+# Main function
+main() {
+    while true; do
+        show_menu
+        case $choice in
+            1) check_ip ;;
+            2) ping_host ;;
+            3) dns_lookup ;;
+            4) port_scan ;;
+            5) speed_test ;;
+            6) traceroute ;;
+            7) show_interfaces ;;
+            8) return ;;
+            *) 
+                print_color "$RED" "Invalid option. Please try again."
+                ;;
+        esac
+        echo
+        read -n 1 -s -r -p "Press any key to continue..."
+    done
+}
+
+main
