@@ -1,38 +1,58 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+# TermuXpert Uninstall Script
+
 # Color definitions
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
+BLUE='\033[0;34m'
 RESET='\033[0m'
 
-echo -e "${YELLOW}TermuXpert Uninstaller${RESET}"
+# Function to print colored output
+print_color() {
+    echo -e "${1}${2}${RESET}"
+}
+
+# Clear screen and print header
+clear
+print_color "$BLUE" "================================"
+print_color "$YELLOW" "    TermuXpert Uninstaller"
+print_color "$BLUE" "================================"
+
+# Load configuration
+if [ -f "$HOME/.termuxpert_config" ]; then
+    source "$HOME/.termuxpert_config"
+else
+    print_color "$RED" "Error: TermuXpert configuration file not found."
+    exit 1
+fi
 
 # Check if TermuXpert is installed
-INSTALL_DIR="$HOME/termuxpert"
 if [ ! -d "$INSTALL_DIR" ]; then
-    echo -e "${RED}Error: TermuXpert is not installed.${RESET}"
+    print_color "$RED" "Error: TermuXpert is not installed."
     exit 1
 fi
 
 # Confirm uninstallation
-read -p "Are you sure you want to uninstall TermuXpert? (y/N) " confirm
+print_color "$YELLOW" "Are you sure you want to uninstall TermuXpert? (y/N)"
+read -r confirm
 if [[ $confirm != [yY] && $confirm != [yY][eE][sS] ]]; then
-    echo "Uninstallation cancelled."
+    print_color "$YELLOW" "Uninstallation cancelled."
     exit 0
 fi
 
 # Remove symlink
-echo "Removing symlink..."
-rm -f "$PREFIX/bin/termuxpert"
+print_color "$YELLOW" "Removing symlink..."
+rm -f "$PREFIX/bin/termuxpert" || { print_color "$RED" "Failed to remove symlink. Continuing..."; }
 
 # Remove installation directory
-echo "Removing TermuXpert directory..."
-rm -rf "$INSTALL_DIR"
+print_color "$YELLOW" "Removing TermuXpert directory..."
+rm -rf "$INSTALL_DIR" || { print_color "$RED" "Failed to remove TermuXpert directory. Continuing..."; }
 
-# Remove any leftover configuration files
-echo "Removing configuration files..."
-rm -f "$HOME/.termuxpert_config"
+# Remove configuration file
+print_color "$YELLOW" "Removing configuration file..."
+rm -f "$HOME/.termuxpert_config" || { print_color "$RED" "Failed to remove configuration file. Continuing..."; }
 
-echo -e "${GREEN}TermuXpert has been successfully uninstalled.${RESET}"
-echo "Thank you for using TermuXpert!"
+print_color "$GREEN" "TermuXpert has been successfully uninstalled."
+print_color "$YELLOW" "Thank you for using TermuXpert!"
