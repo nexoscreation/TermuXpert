@@ -20,7 +20,7 @@ To install TermuXpert, run the following commands in Termux:
 
 1. Add files:
    ```bash
-   curl -O https://raw.githubusercontent.com/nexoscreation/termuxpert/main/install
+   curl -O https://raw.githubusercontent.com/nexoscreation/termuxpert/main/install.sh
    ```
 
 3. Make the scripts executable:
