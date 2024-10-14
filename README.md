@@ -5,14 +5,13 @@
 ## **Features**
 
 - Automated Backups & Restores
-- Personal Server Setup
 - System Monitoring Tools
 - Network Utilities
 - Terminal Customization & Themes
 - Development Environment Setup
-- Task Scheduling & Automation
 - System Information
 - Package Management
+- Personal Server Setup
 
 ## **Installation**
 
@@ -37,7 +36,7 @@ To install TermuXpert, run the following commands in Termux:
 5. Run the main TermuXpert menu:
 
    ```bash
-   bash ./termuxpert.sh
+   termuxpert
    ```
 
 6. Follow the on-screen options for necessary setup, theme selection, and more.
