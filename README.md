@@ -1,64 +1,80 @@
-# **TermuXpert**
+# TermuXpert
 
-**TermuXpert** is an advanced Termux management tool that provides a suite of utilities to enhance your Termux experience on Android devices. It offers features for system management, development, security, and productivity.
+**TermuXpert** is an advanced Termux management tool designed to enhance your Termux experience with a suite of powerful scripts and utilities.
 
-## **Features**
+## Table of Contents
 
-- Automated Backups & Restores
-- System Monitoring Tools
-- Network Utilities
-- Terminal Customization & Themes
-- Development Environment Setup
-- System Information
-- Package Management
-- Personal Server Setup
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Scripts](#scripts)
+5. [Contributing](#contributing)
+6. [License](#license)
 
-## **Installation**
+## Features
 
-To install TermuXpert, run the following commands in Termux:
+TermuXpert offers a wide range of features to optimize and manage your Termux environment:
 
-1. Add files:
-   ```bash
-   curl -O https://raw.githubusercontent.com/nexoscreation/termuxpert/main/install.sh
-   ```
+- **System Management**: Update, upgrade, and optimize your Termux system.
+- **Package Management**: Easily install, update, and remove packages.
+- **Backup and Restore**: Create and restore backups of your Termux environment.
+- **Security Tools**: Enhance your Termux security with various utilities.
+- **Network Tools**: Analyze and manage your network connections.
+- **Development Environment**: Set up and manage development environments for various programming languages.
+- **Customization**: Personalize your Termux experience with themes and configurations.
 
-3. Make the scripts executable:
+## Installation
 
-   ```bash
-   chmod +x install.sh
-   ```
+To install TermuXpert, follow these steps:
 
-4. Run the Installation Setup One time
-   ```bash
-   ./install.sh
-   ```
+1. Ensure you have Termux installed on your Android device.
+2. Open Termux and run the following commands:
 
-5. Run the main TermuXpert menu:
+```bash
+pkg update && pkg upgrade -y
+pkg install git -y
+curl -O https://raw.githubusercontent.com/nexoscreation/termuxpert/main/install.sh
+chmod +x install.sh
+./install.sh
+```
 
-   ```bash
-   termuxpert
-   ```
+The installation script will set up TermuXpert and its dependencies.
 
-6. Follow the on-screen options for necessary setup, theme selection, and more.
+## Usage
 
-## **Usage**
-After installation, you can start **TermuXpert** by running:
+After installation, you can run TermuXpert by executing:
 
 ```bash
 termuxpert
 ```
-This will open the main menu, where you can access all the features of TermuXpert.
 
-## **Documentation**
+This will open the main menu, where you can choose from various options to manage your Termux environment.
 
-For detailed information on how to use TermuXpert, please refer to the <a href="docs/user_guide.md" className="text-blue-600 hover:underline">User Guide</a>. 
+## Scripts
 
-If you're interested in contributing to the project, check out the <a href="docs/developer_guide.md" className="text-blue-600 hover:underline">Developer Guide</a>
+TermuXpert includes the following main scripts:
 
-## **Contributions**
+- `system_info.sh`: Displays detailed system information.
+- `package_manager.sh`: Manages Termux packages.
+- `backup_restore.sh`: Creates and restores backups of your Termux environment.
+- `system_monitor.sh`: Monitors system resources in real-time.
+- `network_tools.sh`: Provides various network utilities.
+- `customization.sh`: Customizes your Termux appearance and behavior.
+- `dev_setup.sh`: Sets up development environments for different programming languages.
+- `security_tools.sh`: Implements various security measures and tools.
 
-We welcome contributions! If you have ideas to improve TermuXpert or want to add new features, feel free to open issues or submit pull requests.
+Each script can be run individually or accessed through the main TermuXpert menu.
 
-## **License**
+## Documentation
 
-This project is licensed under the [MIT License](LICENSE).
+For detailed information on how to use TermuXpert, please refer to the [User Guide](docs/user_guide.md). 
+
+If you're interested in contributing to the project, check out the [Developer Guide](docs/developer_guide.md).
+
+## Contributing
+
+Contributions to TermuXpert are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, or request features.
+
+## License
+
+TermuXpert is released under the [MIT License](LICENSE). See the LICENSE file for more details.

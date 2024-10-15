@@ -2,16 +2,11 @@
 
 # TermuXpert - Advanced Termux Management Script
 
+# Import the configuration file
+source "$HOME/termuxpert/config.sh"
+
 # Color definitions
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-MAGENTA='\033[0;35m'
-CYAN='\033[0;36m'
-WHITE='\033[1;37m'
 NEON_PINK='\033[38;2;255;20;147m'
-RESET='\033[0m'
 
 # Script directory
 SCRIPT_DIR="$HOME/termuxpert/bin"
@@ -28,29 +23,29 @@ display_header() {
     echo "    |_|\___|_|  |_| |_| |_|_| |_|  |_| .__/ \___|_|    \__|"
     echo "                                     | |                   "
     echo "                                     |_|                   "
-    echo -e "${RESET}"
+    echo -e "${TERMUXPERT_COLOR_RESET}"
     echo ""
 }
 
 # Function to display the menu
 display_menu() {
-    echo -e "${YELLOW}Main Menu:${RESET}"
-    echo -e "${CYAN}1.${RESET} System Information"
-    echo -e "${CYAN}2.${RESET} Package Management"
-    echo -e "${CYAN}3.${RESET} Backup and Restore"
-    echo -e "${CYAN}4.${RESET} System Monitoring"
-    echo -e "${CYAN}5.${RESET} Network Tools"
-    echo -e "${CYAN}6.${RESET} Termux Customization"
-    echo -e "${CYAN}7.${RESET} Development Environment Setup"
-    echo -e "${CYAN}8.${RESET} Security Tools"
-    echo -e "${CYAN}9.${RESET} Help"
-    echo -e "${CYAN}0.${RESET} Exit"
+    echo -e "${TERMUXPERT_COLOR_YELLOW}Main Menu:${TERMUXPERT_COLOR_RESET}"
+    echo -e "${TERMUXPERT_COLOR_CYAN}1.${TERMUXPERT_COLOR_RESET} System Information"
+    echo -e "${TERMUXPERT_COLOR_CYAN}2.${TERMUXPERT_COLOR_RESET} Package Management"
+    echo -e "${TERMUXPERT_COLOR_CYAN}3.${TERMUXPERT_COLOR_RESET} Backup and Restore"
+    echo -e "${TERMUXPERT_COLOR_CYAN}4.${TERMUXPERT_COLOR_RESET} System Monitoring"
+    echo -e "${TERMUXPERT_COLOR_CYAN}5.${TERMUXPERT_COLOR_RESET} Network Tools"
+    echo -e "${TERMUXPERT_COLOR_CYAN}6.${TERMUXPERT_COLOR_RESET} Termux Customization"
+    echo -e "${TERMUXPERT_COLOR_CYAN}7.${TERMUXPERT_COLOR_RESET} Development Environment Setup"
+    echo -e "${TERMUXPERT_COLOR_CYAN}8.${TERMUXPERT_COLOR_RESET} Security Tools"
+    echo -e "${TERMUXPERT_COLOR_CYAN}9.${TERMUXPERT_COLOR_RESET} Help"
+    echo -e "${TERMUXPERT_COLOR_CYAN}0.${TERMUXPERT_COLOR_RESET} Exit"
     echo ""
 }
 
 # Function to get user choice
 get_choice() {
-    read -p "$(echo -e ${GREEN}Select an option [0-9]:${RESET} )" choice
+    read -p "$(echo -e ${TERMUXPERT_COLOR_GREEN}Select an option [0-9]:${TERMUXPERT_COLOR_RESET} )" choice
     echo ""
 }
 
@@ -60,13 +55,13 @@ execute_script() {
     if [ -f "$script" ] && [ -x "$script" ]; then
         "$script"
     else
-        echo -e "${RED}Error: Script $1 not found or not executable.${RESET}"
+        echo -e "${TERMUXPERT_COLOR_RED}Error: Script $1 not found or not executable.${TERMUXPERT_COLOR_RESET}"
     fi
 }
 
 # Function to display help
 display_help() {
-    echo -e "${YELLOW}TermuXpert Help:${RESET}"
+    echo -e "${TERMUXPERT_COLOR_YELLOW}TermuXpert Help:${TERMUXPERT_COLOR_RESET}"
     echo "This tool provides various utilities for managing your Termux environment."
     echo ""
     echo "Available options:"
@@ -81,14 +76,14 @@ display_help() {
     echo "9. Help - Display this help message"
     echo "0. Exit - Exit TermuXpert"
     echo ""
-    echo -e "${YELLOW}For more detailed information, please refer to the documentation.${RESET}"
+    echo -e "${TERMUXPERT_COLOR_YELLOW}For more detailed information, please refer to the documentation.${TERMUXPERT_COLOR_RESET}"
 }
 
 # Trap Ctrl+C
 trap ctrl_c INT
 
 function ctrl_c() {
-    echo -e "\n${YELLOW}Ctrl+C detected. Exiting...${RESET}"
+    echo -e "\n${TERMUXPERT_COLOR_YELLOW}Ctrl+C detected. Exiting...${TERMUXPERT_COLOR_RESET}"
     exit 1
 }
 
@@ -115,9 +110,9 @@ while true; do
         7) execute_script "dev_setup.sh" ;;
         8) execute_script "security_tools.sh" ;;
         9) display_help ;;
-        0) echo -e "${MAGENTA}Exiting TermuXpert. Goodbye!${RESET}" && exit 0 ;;
-        *) echo -e "${RED}Invalid choice. Please try again.${RESET}" ;;
+        0) echo -e "${TERMUXPERT_COLOR_MAGENTA}Exiting TermuXpert. Goodbye!${TERMUXPERT_COLOR_RESET}" && exit 0 ;;
+        *) echo -e "${TERMUXPERT_COLOR_RED}Invalid choice. Please try again.${TERMUXPERT_COLOR_RESET}" ;;
     esac
     echo ""
-    read -n 1 -s -r -p "$(echo -e ${YELLOW}Press any key to continue...${RESET})"
+    read -n 1 -s -r -p "$(echo -e ${TERMUXPERT_COLOR_YELLOW}Press any key to continue...${TERMUXPERT_COLOR_RESET})"
 done

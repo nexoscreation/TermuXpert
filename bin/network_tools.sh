@@ -1,20 +1,11 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-# Color definitions
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-CYAN='\033[0;36m'
-RESET='\033[0m'
-
-# Function to print colored output
-print_color() {
-    echo -e "${1}${2}${RESET}"
-}
+# Import the configuration file
+source "$HOME/termuxpert/config.sh"
 
 # Function to check IP address
 check_ip() {
-    print_color "$CYAN" "IP Address:"
+    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "IP Address:"
     curl -s ifconfig.me
     echo
 }
@@ -22,55 +13,55 @@ check_ip() {
 # Function to ping a host
 ping_host() {
     read -p "Enter hostname or IP to ping: " host
-    print_color "$YELLOW" "Pinging $host..."
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Pinging $host..."
     ping -c 4 "$host"
 }
 
 # Function to perform DNS lookup
 dns_lookup() {
     read -p "Enter domain name for DNS lookup: " domain
-    print_color "$CYAN" "DNS Lookup for $domain:"
+    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "DNS Lookup for $domain:"
     nslookup "$domain"
 }
 
 # Function to scan ports
 port_scan() {
     if ! command -v nmap &> /dev/null; then
-        print_color "$YELLOW" "nmap is not installed. Installing..."
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "nmap is not installed. Installing..."
         pkg install nmap -y
     fi
     read -p "Enter IP address or hostname to scan: " target
-    print_color "$YELLOW" "Scanning ports for $target..."
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Scanning ports for $target..."
     nmap "$target"
 }
 
 # Function to perform a network speed test
 speed_test() {
     if ! command -v speedtest-cli &> /dev/null; then
-        print_color "$YELLOW" "speedtest-cli is not installed. Installing..."
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "speedtest-cli is not installed. Installing..."
         pip install speedtest-cli
     fi
-    print_color "$YELLOW" "Performing speed test..."
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Performing speed test..."
     speedtest-cli
 }
 
 # Function to perform traceroute
 traceroute() {
     read -p "Enter hostname or IP for traceroute: " host
-    print_color "$YELLOW" "Performing traceroute to $host..."
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Performing traceroute to $host..."
     traceroute "$host"
 }
 
 # Function to show network interfaces
 show_interfaces() {
-    print_color "$CYAN" "Network Interfaces:"
+    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Network Interfaces:"
     ifconfig
 }
 
 # Main menu
 show_menu() {
     clear
-    print_color "$CYAN" "Network Tools"
+    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Network Tools"
     echo "1. Check IP address"
     echo "2. Ping a host"
     echo "3. DNS lookup"
@@ -97,7 +88,7 @@ main() {
             7) show_interfaces ;;
             8) return ;;
             *) 
-                print_color "$RED" "Invalid option. Please try again."
+                termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Invalid option. Please try again."
                 ;;
         esac
         echo
