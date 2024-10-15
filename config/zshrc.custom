@@ -1,7 +1,12 @@
-# TermuXpert custom Bash configuration
+PROMPT='%F{cyan}%n@%m%f:%F{blue}%~%f$ '
 
-# Set a custom prompt
-PS1='\[\033[1;36m\]\u@\h\[\033[0m\]:\[\033[1;34m\]\w\[\033[0m\]\$ '
+
+
+# Welcome Message
+echo "Welcome to Termux, $(whoami)!"
+echo "Current date: $(date)"
+echo "System uptime: $(uptime -p)"
+
 
 # Aliases for TermuXpert
 
@@ -53,21 +58,18 @@ alias reload='source ~/.bashrc'
 # Example:
 # alias myalias='some_command --with-options'
 
-# Environment Variables for TermuXpert
 
-export EDITOR='nano'
-export VISUAL='nano'
-export HISTCONTROL=ignoreboth:erasedups
-export HISTSIZE=1000
-export HISTFILESIZE=2000
+# Aliases for Color Support
+# Enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 
-
-# Add bin directory to PATH
-export PATH="$HOME/termuxpert/bin:$PATH"
-
-# Enable command-line completion
-if [ -f /data/data/com.termux/files/usr/share/bash-completion/bash_completion ]; then
-. /data/data/com.termux/files/usr/share/bash-completion/bash_completion
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 fi
 
 # Custom Functions for TermuXpert
@@ -102,23 +104,14 @@ fi
 # Path for TermuXpert
 # export PATH="$HOME/bin:$PATH"
 
-# Welcome Message
-echo "Welcome to Termux, $(whoami)!"
-echo "Current date: $(date)"
-echo "System uptime: $(uptime -p)"
+# Environment Variables for TermuXpert
 
-# Aliases for Color Support
-# Enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
+export EDITOR='nano'
+export VISUAL='nano'
+export HISTCONTROL=ignoreboth:erasedups
+export HISTSIZE=1000
+export HISTFILESIZE=2000
 
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-fi
 
 # Aliases for Command History
 # Don't put duplicate lines or lines starting with space in the history

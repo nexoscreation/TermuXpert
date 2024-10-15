@@ -1,11 +1,8 @@
 {
   "name": "TermuXpert",
-  "version": "0.6.7",
+  "version": "0.7.0",
   "description": "A Termux package for expert-level automation, customization, and system management.",
-  "main": "nexos.sh",
-  "directories": {
-    "doc": "docs"
-  },
+  "main": "install.sh",
   "scripts": {
     "start": "bash install.sh"
   },
@@ -20,8 +17,5 @@
   ],
   "author": "nexoscreator",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nexoscreation/TermuXpert/issues"
-  },
   "homepage": "https://github.com/nexoscreation/TermuXpert#readme"
 }
