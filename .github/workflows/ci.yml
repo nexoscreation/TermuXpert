@@ -1,0 +1,30 @@
+name: TermuXpert CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Termux environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y proot
+        curl -LO https://github.com/termux/termux-app/releases/download/v0.118.0/termux-app_v0.118.0+github-debug_universal.apk
+        proot -0 -r . -b /dev -b /proc -b /sys -b /etc -w /root /system/bin/sh -c "pkg update -y && pkg install -y bash curl"
+    
+    - name: Run tests
+      run: |
+        proot -0 -r . -b /dev -b /proc -b /sys -b /etc -w /root /system/bin/sh -c "bash tests/test_system_monitor.sh"
+    
+    - name: Lint shell scripts
+      run: |
+        sudo apt-get install -y shellcheck
+        shellcheck bin/*.sh bin/*/*.sh

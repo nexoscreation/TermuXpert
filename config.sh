@@ -11,10 +11,6 @@ export TERMUXPERT_COLOR_MAGENTA='\033[0;35m'
 export TERMUXPERT_COLOR_CYAN='\033[0;36m'
 export TERMUXPERT_COLOR_RESET='\033[0m'
 
-
-# Language settings
-export TERMUXPERT_LANG="en"  # Default language
-
 # Directories
 export TERMUXPERT_ROOT_DIR="$HOME/termuxpert"
 export TERMUXPERT_BIN_DIR="$TERMUXPERT_ROOT_DIR/bin"
@@ -27,6 +23,9 @@ export TERMUXPERT_VERSION="1.0.0"
 # Default settings
 export TERMUXPERT_DEFAULT_EDITOR="nano"
 export TERMUXPERT_DEFAULT_SHELL="bash"
+
+# Language settings
+export TERMUXPERT_LANG="en"  # Default language
 
 # Function to print colored output
 termuxpert_print_color() {
@@ -44,3 +43,17 @@ termuxpert_run_command() {
     fi
     return 0
 }
+
+# Function to load language strings
+# load_language() {
+#    local lang_file="$TERMUXPERT_ROOT_DIR/locales/${TERMUXPERT_LANG}.sh"
+#    if [ -f "$lang_file" ]; then
+#        source "$lang_file"
+#    else
+#        echo "Error: Language file not found. Falling back to English."
+#        source "$TERMUXPERT_ROOT_DIR/locales/en.sh"
+#    fi
+# }
+#
+# Load language strings
+#load_language
