@@ -54,5 +54,8 @@ rm -rf "$INSTALL_DIR" || { print_color "$RED" "Failed to remove TermuXpert direc
 print_color "$YELLOW" "Removing configuration file..."
 rm -f "$HOME/.termuxpert_config" || { print_color "$RED" "Failed to remove configuration file. Continuing..."; }
 
+# Back to Home
+cd ..
+
 print_color "$GREEN" "TermuXpert has been successfully uninstalled."
 print_color "$YELLOW" "Thank you for using TermuXpert!"

@@ -72,5 +72,10 @@ pkg install -y curl wget jq || { print_color "$RED" "Failed to install dependenc
 print_color "$YELLOW" "Creating configuration file..."
 echo "INSTALL_DIR=$INSTALL_DIR" > "$HOME/.termuxpert_config"
 
+# Remove install.sh
+print_color "$YELLOW" "install.sh has been removed.
+..."
+rm install.sh
+
 print_color "$GREEN" "TermuXpert has been successfully installed!"
 print_color "$YELLOW" "You can now run 'termuxpert' from anywhere to start the tool."
