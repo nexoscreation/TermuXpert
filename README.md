@@ -1,14 +1,10 @@
 # TermuXpert 🚀
 
-[![GitHub stars](https://img.shields.io/github/stars/nexoscreation/TermuXpert.svg?style=social&label=Star)](https://github.com/nexoscreation/TermuXpert)
-[![GitHub forks](https://img.shields.io/github/forks/nexoscreation/TermuXpert.svg?style=social&label=Fork)](https://github.com/nexoscreation/TermuXpert/fork)
-[![GitHub watchers](https://img.shields.io/github/watchers/nexoscreation/TermuXpert.svg?style=social&label=Watch)](https://github.com/nexoscreation/TermuXpert)
+[![GitHub stars](https://img.shields.io/github/stars/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert)
+[![GitHub forks](https://img.shields.io/github/forks/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert/fork)
+[![GitHub watchers](https://img.shields.io/github/watchers/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert)
 
 > 🛠️ Supercharge your Termux experience with TermuXpert - Your all-in-one toolkit for Android terminal mastery!
-
-# TermuXpert
-
-TermuXpert is a comprehensive toolkit designed to enhance your Termux experience on Android devices. It provides a user-friendly interface to access various system tools, customization options, and development environments.
 
 ## 🌟 Features
 
