@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: Set up Termux environment
       run: |
@@ -22,7 +22,7 @@ jobs:
     
     - name: Run tests
       run: |
-        proot -0 -r . -b /dev -b /proc -b /sys -b /etc -w /root /system/bin/sh -c "bash tests/test_system_monitor.sh"
+        proot -0 -r . -b /dev -b /proc -b /sys -b /etc -w /root /system/bin/sh -c "bash bin/termuxpert.sh"
     
     - name: Lint shell scripts
       run: |

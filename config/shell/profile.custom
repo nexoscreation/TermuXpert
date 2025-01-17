@@ -1,0 +1,6 @@
+# Environment variables
+export EDITOR=vim
+export TERM=xterm-256color
+
+# Add local bin to PATH
+export PATH=$HOME/.local/bin:$PATH
