@@ -1,0 +1,11 @@
+[user]
+    name = Your Name
+    email = youremail@example.com
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    df = diff
+[color]
+    ui = auto

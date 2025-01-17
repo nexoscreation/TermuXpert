@@ -1,10 +1,14 @@
 {
   "name": "TermuXpert",
-  "version": "0.8.0",
-  "description": "A Termux package for expert-level automation, customization, and system management.",
+  "version": "1.0.0",
+  "description": "An advanced Termux package for automation, customization, and system management.",
   "main": "install.sh",
   "scripts": {
-    "start": "bash install.sh"
+    "start": "bash install.sh",
+    "update": "bash update.sh",
+    "uninstall": "bash uninstall.sh",
+    "test": "bash test.sh",
+    "docs": "open README.md"
   },
   "repository": {
     "type": "git",
@@ -13,9 +17,15 @@
   "keywords": [
     "os",
     "termux",
-    "termux-tool"
+    "automation",
+    "tools",
+    "system",
+    "expert"
   ],
   "author": "nexoscreator",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nexoscreation/TermuXpert/issues"
+  },
   "homepage": "https://github.com/nexoscreation/TermuXpert#readme"
 }
