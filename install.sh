@@ -18,7 +18,6 @@ readonly COLOR_RESET='\033[0m'
 
 # Configuration
 readonly GITHUB_REPO="nexoscreation/TermuXpert"
-readonly MIN_STORAGE_MB=100
 readonly REQUIRED_PACKAGES=(git curl wget jq)
 
 # Logging functions
@@ -55,12 +54,6 @@ validate_system() {
     fi
     
     # Check available storage
-    local available_storage
-    available_storage=$(df -m "$HOME" | awk 'NR==2 {print $4}')
-    if [ "$available_storage" -lt "$MIN_STORAGE_MB" ]; then
-        log_error "Insufficient storage space. Need at least ${MIN_STORAGE_MB}MB"
-        exit 1
-    fi
 }
 
 # Package management
