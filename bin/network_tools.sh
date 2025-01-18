@@ -3,10 +3,19 @@
 # Import the configuration file
 source "$HOME/termuxpert/config.sh"
 
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" &>/dev/null
+}
+
 # Function to check IP address
 check_ip() {
-    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "IP Address:"
-    curl -s ifconfig.me
+    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Checking IP Address..."
+    if command_exists curl; then
+        curl -s ifconfig.me
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "curl is not installed. Please install curl to continue."
+    fi
     echo
 }
 
@@ -14,48 +23,72 @@ check_ip() {
 ping_host() {
     read -p "Enter hostname or IP to ping: " host
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Pinging $host..."
-    ping -c 4 "$host"
+    if command_exists ping; then
+        ping -c 4 "$host"
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "ping command not found!"
+    fi
 }
 
 # Function to perform DNS lookup
 dns_lookup() {
     read -p "Enter domain name for DNS lookup: " domain
     termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "DNS Lookup for $domain:"
-    nslookup "$domain"
+    if command_exists nslookup; then
+        nslookup "$domain"
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "nslookup is not installed. Please install it to continue."
+    fi
 }
 
 # Function to scan ports
 port_scan() {
-    if ! command -v nmap &> /dev/null; then
+    if ! command_exists nmap; then
         termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "nmap is not installed. Installing..."
         pkg install nmap -y
     fi
     read -p "Enter IP address or hostname to scan: " target
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Scanning ports for $target..."
-    nmap "$target"
+    if command_exists nmap; then
+        nmap "$target"
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "nmap command failed to execute!"
+    fi
 }
 
 # Function to perform a network speed test
 speed_test() {
-    if ! command -v speedtest-cli &> /dev/null; then
+    if ! command_exists speedtest-cli; then
         termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "speedtest-cli is not installed. Installing..."
         pip install speedtest-cli
     fi
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Performing speed test..."
-    speedtest-cli
+    if command_exists speedtest-cli; then
+        speedtest-cli
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "speedtest-cli failed to execute!"
+    fi
 }
 
 # Function to perform traceroute
 traceroute() {
     read -p "Enter hostname or IP for traceroute: " host
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Performing traceroute to $host..."
-    traceroute "$host"
+    if command_exists traceroute; then
+        traceroute "$host"
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "traceroute is not installed. Please install it to continue."
+    fi
 }
 
 # Function to show network interfaces
 show_interfaces() {
     termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Network Interfaces:"
-    ifconfig
+    if command_exists ifconfig; then
+        ifconfig
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "ifconfig is not available. Please install net-tools to continue."
+    fi
 }
 
 # Main menu

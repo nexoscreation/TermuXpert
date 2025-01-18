@@ -3,13 +3,18 @@
 # Import the configuration file
 source "$HOME/termuxpert/config.sh"
 
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" &>/dev/null
+}
+
 # Function to update package lists
 update_packages() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Updating package lists..."
     if pkg update -y; then
         termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Package lists updated successfully."
     else
-        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to update package lists."
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to update package lists. Please check your internet connection."
     fi
 }
 
@@ -19,29 +24,41 @@ upgrade_packages() {
     if pkg upgrade -y; then
         termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Packages upgraded successfully."
     else
-        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to upgrade packages."
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to upgrade packages. Please try again."
     fi
 }
 
 # Function to install a package
 install_package() {
     read -p "Enter package name to install: " package_name
-    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Installing $package_name..."
-    if pkg install -y "$package_name"; then
-        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "$package_name installed successfully."
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Checking if $package_name is already installed..."
+    
+    if pkg list-installed | grep -q "$package_name"; then
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "$package_name is already installed."
     else
-        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to install $package_name."
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Installing $package_name..."
+        if pkg install -y "$package_name"; then
+            termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "$package_name installed successfully."
+        else
+            termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to install $package_name."
+        fi
     fi
 }
 
 # Function to remove a package
 remove_package() {
     read -p "Enter package name to remove: " package_name
-    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Removing $package_name..."
-    if pkg uninstall -y "$package_name"; then
-        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "$package_name removed successfully."
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Checking if $package_name is installed..."
+    
+    if pkg list-installed | grep -q "$package_name"; then
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Removing $package_name..."
+        if pkg uninstall -y "$package_name"; then
+            termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "$package_name removed successfully."
+        else
+            termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to remove $package_name."
+        fi
     else
-        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to remove $package_name."
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "$package_name is not installed."
     fi
 }
 
@@ -54,8 +71,14 @@ list_packages() {
 # Function to search for a package
 search_package() {
     read -p "Enter package name to search: " package_name
-    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Search results for $package_name:"
-    pkg search "$package_name"
+    termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Searching for $package_name..."
+    
+    if pkg search "$package_name" | grep -q "$package_name"; then
+        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Search results for $package_name:"
+        pkg search "$package_name"
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "No packages found for $package_name."
+    fi
 }
 
 # Main menu

@@ -11,35 +11,44 @@ NEON_PINK='\033[38;2;255;20;147m'
 # Script directory
 SCRIPT_DIR="$HOME/termuxpert/bin"
 
+USER_NAME=$(whoami)
+HOST_NAME=$(uname -n)
+
 # Function to display the header
 display_header() {
     clear
+    echo -e "${TERMUXPERT_COLOR_CYAN}Hello, ${USER_NAME}@${HOST_NAME}! Welcome to TermuXpert.${TERMUXPERT_COLOR_RESET}"
     echo -e "${NEON_PINK}"
-    echo "  _______                      __  __                  _   "
-    echo " |__   __|                    |  \/  |                | |  "
-    echo "    | | ___ _ __ _ __ ___  _  | \  / |_ __   ___ _ __ | |_ "
-    echo "    | |/ _ \ '__| '_ \` _ \| | | |\/| | '_ \ / _ \ '__|| __|"
-    echo "    | |  __/ |  | | | | | | | | |  | | |_) |  __/ |   | |_ "
-    echo "    |_|\___|_|  |_| |_| |_|_| |_|  |_| .__/ \___|_|    \__|"
-    echo "                                     | |                   "
-    echo "                                     |_|                   "
+    echo -e "└────╼                                                       "
+    echo -e "  _______                      __  __                  _     "
+    echo -e " |__   __|                    |  \/  |                | |    "
+    echo -e "    | | ___ _ __ _ __ ___  _  | \  / |_ __   ___ _ __ | |_   "
+    echo -e "    | |/ _ \ '__| '_ \` _ \| | | |\/| | '_ \ / _ \ '__|| __| "
+    echo -e "    | |  __/ |  | | | | | | | | |  | | |_) |  __/ |   | |_   "
+    echo -e "    |_|\___|_|  |_| |_| |_|_| |_|  |_| .__/ \___|_|    \__|  "
+    echo -e "                                     | |                     "
+    echo -e "                                     |_|                     "
+    echo -e "                                                     v1.0.0  "
     echo -e "${TERMUXPERT_COLOR_RESET}"
-    echo ""
 }
 
 # Function to display the menu
 display_menu() {
-    echo -e "${TERMUXPERT_COLOR_YELLOW}Main Menu:${TERMUXPERT_COLOR_RESET}"
-    echo -e "${TERMUXPERT_COLOR_CYAN}1.${TERMUXPERT_COLOR_RESET} System Information"
-    echo -e "${TERMUXPERT_COLOR_CYAN}2.${TERMUXPERT_COLOR_RESET} Package Management"
-    echo -e "${TERMUXPERT_COLOR_CYAN}3.${TERMUXPERT_COLOR_RESET} Backup and Restore"
-    echo -e "${TERMUXPERT_COLOR_CYAN}4.${TERMUXPERT_COLOR_RESET} System Monitoring"
-    echo -e "${TERMUXPERT_COLOR_CYAN}5.${TERMUXPERT_COLOR_RESET} Network Tools"
-    echo -e "${TERMUXPERT_COLOR_CYAN}6.${TERMUXPERT_COLOR_RESET} Termux Customization"
-    echo -e "${TERMUXPERT_COLOR_CYAN}7.${TERMUXPERT_COLOR_RESET} Development Environment Setup"
-    echo -e "${TERMUXPERT_COLOR_CYAN}8.${TERMUXPERT_COLOR_RESET} Security Tools"
-    echo -e "${TERMUXPERT_COLOR_CYAN}9.${TERMUXPERT_COLOR_RESET} Help"
-    echo -e "${TERMUXPERT_COLOR_CYAN}0.${TERMUXPERT_COLOR_RESET} Exit"
+    echo ""
+    echo -e "${TERMUXPERT_COLOR_CYAN}╔═══════════════════════════════════════════════════════════╗${TERMUXPERT_COLOR_RESET}"
+    echo -e "${TERMUXPERT_COLOR_CYAN}║                          Main Menu                        ║${TERMUXPERT_COLOR_RESET}"
+    echo -e "${TERMUXPERT_COLOR_CYAN}╚═══════════════════════════════════════════════════════════╝${TERMUXPERT_COLOR_RESET}"
+    echo ""
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 1.${TERMUXPERT_COLOR_RESET} System Information      - View system details           "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 2.${TERMUXPERT_COLOR_RESET} Package Management      - Manage installed packages     "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 3.${TERMUXPERT_COLOR_RESET} Backup and Restore      - Backup or restore files       "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 4.${TERMUXPERT_COLOR_RESET} System Monitoring       - Monitor system resources      "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 5.${TERMUXPERT_COLOR_RESET} Network Tools           - Network diagnostics           "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 6.${TERMUXPERT_COLOR_RESET} Termux Customization    - Customize Termux settings     "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 7.${TERMUXPERT_COLOR_RESET} Dev Environment Setup   - Setup development tools       "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 8.${TERMUXPERT_COLOR_RESET} Security Tools          - Access security utilities     "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 9.${TERMUXPERT_COLOR_RESET} Help                    - Get help or documentation     "
+    echo -e "${TERMUXPERT_COLOR_CYAN}❯ 0.${TERMUXPERT_COLOR_RESET} Exit                    - Quit the application          "
     echo ""
 }
 
@@ -61,22 +70,30 @@ execute_script() {
 
 # Function to display help
 display_help() {
-    echo -e "${TERMUXPERT_COLOR_YELLOW}TermuXpert Help:${TERMUXPERT_COLOR_RESET}"
-    echo "This tool provides various utilities for managing your Termux environment."
     echo ""
-    echo "Available options:"
-    echo "1. System Information - Display details about your Termux system"
-    echo "2. Package Management - Manage Termux packages"
-    echo "3. Backup and Restore - Backup and restore your Termux environment"
-    echo "4. System Monitoring - Monitor system resources"
-    echo "5. Network Tools - Various network-related utilities"
-    echo "6. Termux Customization - Customize your Termux environment"
-    echo "7. Development Environment Setup - Set up development environments"
-    echo "8. Security Tools - Various security-related utilities"
-    echo "9. Help - Display this help message"
-    echo "0. Exit - Exit TermuXpert"
+    echo -e "${TERMUXPERT_COLOR_CYAN}╔═══════════════════════════════════════════════════════════╗${TERMUXPERT_COLOR_RESET}"
+    echo -e "${TERMUXPERT_COLOR_CYAN}║                      TermuXpert Help                      ║${TERMUXPERT_COLOR_RESET}"
+    echo -e "${TERMUXPERT_COLOR_CYAN}╚═══════════════════════════════════════════════════════════╝${TERMUXPERT_COLOR_RESET}"
     echo ""
-    echo -e "${TERMUXPERT_COLOR_YELLOW}For more detailed information, please refer to the documentation.${TERMUXPERT_COLOR_RESET}"
+    echo -e "This tool provides a variety of utilities to manage and enhance your Termux environment effectively."
+    echo ""
+    echo ""
+    echo -e "┌─╼ ${TERMUXPERT_COLOR_GREEN}Helpful Links:${TERMUXPERT_COLOR_RESET}"
+    echo -e "❯ ${TERMUXPERT_COLOR_CYAN}Discord Server:${TERMUXPERT_COLOR_RESET} Join our community for support and discussions."
+    echo -e "   ${TERMUXPERT_COLOR_UNDERLINE}https://discord.gg/A3euTAVqHv${TERMUXPERT_COLOR_RESET}"
+    echo ""
+    echo -e "❯ ${TERMUXPERT_COLOR_CYAN}GitHub Repository:${TERMUXPERT_COLOR_RESET} Report issues or contribute to the project."
+    echo -e "   ${TERMUXPERT_COLOR_UNDERLINE}https://github.com/nexoscreation/TermuXpert${TERMUXPERT_COLOR_RESET}"
+    echo ""
+    echo -e "❯ ${TERMUXPERT_COLOR_CYAN}Documentation:${TERMUXPERT_COLOR_RESET} Learn more about features and usage."
+    echo -e "   ${TERMUXPERT_COLOR_UNDERLINE}https://docs.nexoscreator.tech${TERMUXPERT_COLOR_RESET}"
+    echo ""
+    echo -e "┌─╼ ${TERMUXPERT_COLOR_GREEN}Supports:${TERMUXPERT_COLOR_RESET}"
+    echo -e "${PAD_SPACES}❯ ${TERMUXPERT_COLOR_CYAN}Contact Support:${TERMUXPERT_COLOR_RESET} Reach out for assistance."
+    echo -e "${PAD_SPACES}   ${TERMUXPERT_COLOR_UNDERLINE}support@nexoscreator.tech${TERMUXPERT_COLOR_RESET}"
+    echo ""
+    echo -e "${TERMUXPERT_COLOR_YELLOW}Thank you for using TermuXpert!${TERMUXPERT_COLOR_RESET}"
+    echo ""
 }
 
 # Trap Ctrl+C

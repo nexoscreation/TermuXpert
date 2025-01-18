@@ -3,26 +3,39 @@
 # Import the configuration file
 source "$HOME/termuxpert/config.sh"
 
+# Function to check if a package is installed
+is_package_installed() {
+    pkg list-installed | grep -q "^$1" && return 0 || return 1
+}
+
 # Function to install Python development tools
 setup_python() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up Python development environment..."
-    pkg install python -y
-    pip install ipython pylint black
+    if ! is_package_installed python; then
+        pkg install python -y
+    fi
+    if ! pip show ipython &>/dev/null; then
+        pip install ipython pylint black
+    fi
     termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Python development tools installed."
 }
 
 # Function to install Node.js and npm
 setup_nodejs() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up Node.js development environment..."
-    pkg install nodejs -y
-    npm install -g yarn typescript eslint
-    termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Node.js and npm installed with global packages."
+    if ! is_package_installed nodejs; then
+        pkg install nodejs -y
+    fi
+    node -v
+    termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Node.js and npm installed with leatest version."
 }
 
 # Function to install and configure Git
 setup_git() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up Git..."
-    pkg install git -y
+    if ! is_package_installed git; then
+        pkg install git -y
+    fi
     read -p "Enter your Git username: " git_username
     read -p "Enter your Git email: " git_email
     git config --global user.name "$git_username"
@@ -34,16 +47,24 @@ setup_git() {
 # Function to install C/C++ development tools
 setup_cpp() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up C/C++ development environment..."
-    pkg install clang -y
-    pkg install make -y
-    pkg install cmake -y
+    if ! is_package_installed clang; then
+        pkg install clang -y
+    fi
+    if ! is_package_installed make; then
+        pkg install make -y
+    fi
+    if ! is_package_installed cmake; then
+        pkg install cmake -y
+    fi
     termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "C/C++ development tools installed."
 }
 
 # Function to install Ruby and Rails
 setup_ruby() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up Ruby and Rails development environment..."
-    pkg install ruby -y
+    if ! is_package_installed ruby; then
+        pkg install ruby -y
+    fi
     gem install rails
     termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Ruby and Rails installed."
 }
@@ -51,21 +72,29 @@ setup_ruby() {
 # Function to install Java development tools
 setup_java() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up Java development environment..."
-    pkg install openjdk-17 -y
+    if ! is_package_installed openjdk-17; then
+        pkg install openjdk-17 -y
+    fi
     termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Java development tools installed."
 }
 
 # Function to install Go development tools
 setup_go() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up Go development environment..."
-    pkg install golang -y
-    echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-    echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
-    source ~/.bashrc
+    if ! is_package_installed golang; then
+        pkg install golang -y
+    fi
+    # Check and modify ~/.bashrc only if necessary
+    if ! grep -q "export GOPATH=\$HOME/go" ~/.bashrc; then
+        echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+        echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
+        source ~/.bashrc
+    fi
     termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Go development tools installed."
 }
 
-# Main menu
+
+# Main menu function with user confirmation before installation
 show_menu() {
     clear
     termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Development Environment Setup"

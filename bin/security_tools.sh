@@ -31,17 +31,30 @@ install_package() {
 # Function to generate SSH key
 generate_ssh_key() {
     read -p "Enter your email for the SSH key: " email
-    ssh-keygen -t ed25519 -C "$email"
-    termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "SSH key generated successfully."
-    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Your public key:"
-    cat ~/.ssh/id_ed25519.pub
+    if [ -z "$email" ]; then
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Email cannot be empty."
+        return 1
+    fi
+
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Generating SSH key..."
+    if ssh-keygen -t ed25519 -C "$email"; then
+        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "SSH key generated successfully."
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Your public key:"
+        cat ~/.ssh/id_ed25519.pub
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to generate SSH key."
+    fi
 }
 
 # Function to set up two-factor authentication
 setup_2fa() {
     if install_package google-authenticator; then
-        google-authenticator
-        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Two-factor authentication set up. Follow the instructions above."
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting up two-factor authentication..."
+        if google-authenticator; then
+            termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Two-factor authentication set up. Follow the instructions above."
+        else
+            termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to set up two-factor authentication."
+        fi
     fi
 }
 
@@ -50,8 +63,12 @@ encrypt_file() {
     if install_package gnupg; then
         read -p "Enter the file to encrypt: " file_to_encrypt
         if [ -f "$file_to_encrypt" ]; then
-            gpg -c "$file_to_encrypt"
-            termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "File encrypted successfully."
+            termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Encrypting file $file_to_encrypt..."
+            if gpg -c "$file_to_encrypt"; then
+                termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "File encrypted successfully."
+            else
+                termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to encrypt the file."
+            fi
         else
             termuxpert_print_color "$TERMUXPERT_COLOR_RED" "File not found."
         fi
@@ -63,8 +80,12 @@ decrypt_file() {
     if install_package gnupg; then
         read -p "Enter the file to decrypt: " file_to_decrypt
         if [ -f "$file_to_decrypt" ]; then
-            gpg "$file_to_decrypt"
-            termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "File decrypted successfully."
+            termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Decrypting file $file_to_decrypt..."
+            if gpg "$file_to_decrypt"; then
+                termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "File decrypted successfully."
+            else
+                termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to decrypt the file."
+            fi
         else
             termuxpert_print_color "$TERMUXPERT_COLOR_RED" "File not found."
         fi
@@ -75,6 +96,11 @@ decrypt_file() {
 scan_ports() {
     if install_package nmap; then
         read -p "Enter the IP address to scan: " ip_to_scan
+        if [[ ! "$ip_to_scan" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Invalid IP address format."
+            return 1
+        fi
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Scanning IP $ip_to_scan for open ports..."
         nmap "$ip_to_scan"
     fi
 }
@@ -82,9 +108,11 @@ scan_ports() {
 # Function to check for system updates
 check_updates() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Checking for system updates..."
-    pkg update -y
-    pkg upgrade -y
-    termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "System updated successfully."
+    if pkg update -y && pkg upgrade -y; then
+        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "System updated successfully."
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Failed to update the system. Check your internet connection."
+    fi
 }
 
 # Function to set up a firewall
