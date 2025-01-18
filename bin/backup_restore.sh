@@ -3,7 +3,6 @@
 # Import the configuration file
 source "$HOME/termuxpert/config.sh"
 
-
 # Function to create a backup
 create_backup() {
     mkdir -p "$TERMUXPERT_BACKUP_DIR"

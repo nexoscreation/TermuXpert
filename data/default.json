@@ -1,0 +1,38 @@
+{
+    "version": "1.0.0",
+    "settings": {
+      "core": {
+        "updateChannel": "stable",
+        "autoUpdate": true,
+        "backupEnabled": true,
+        "backupLocation": "~/.termuxpert/backups"
+      },
+      "security": {
+        "allowRoot": false,
+        "passwordProtection": true,
+        "encryptBackups": true
+      },
+      "performance": {
+        "maxProcesses": 4,
+        "ramLimit": 2048,
+        "enableLogging": true,
+        "logLevel": "info"
+      },
+      "packages": {
+        "preferredMirror": "https://packages.termux.org",
+        "autoCleanCache": true,
+        "keepOldVersions": 2
+      },
+      "ui": {
+        "theme": "system",
+        "fontSize": 14,
+        "fontFamily": "Fira Code",
+        "showSystemInfo": true
+      }
+    },
+    "plugins": {
+      "enabled": [],
+      "autoUpdate": true
+    }
+  }
+  

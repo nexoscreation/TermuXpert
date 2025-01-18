@@ -28,6 +28,24 @@ install_package() {
     return 0
 }
 
+# Function to set termux scheme
+set_termux_scheme() {
+    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting custom Termux scheme..."
+
+    # Define the path to your existing config directory where termux.properties is stored
+    CONFIG_DIR="$HOME/termuxpert/config"  # Modify this path if needed
+    TERMUX_FILE="$CONFIG_DIR/termux/termux.properties"
+
+    # Check if the termux.properties file exists in the config directory
+    if [ -f "$TERMUX_FILE" ]; then
+        mkdir -p ~/.termux
+        cp "$TERMUX_FILE" ~/.termux/termux.properties
+        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Custom Termux scheme set from the config file. Restart Termux to apply changes."
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Error: termux.properties file not found in the config directory!"
+    fi
+}
+
 # Function to set up Zsh and Oh My Zsh
 setup_zsh() {
     if install_package zsh; then
@@ -46,38 +64,21 @@ setup_zsh() {
 # Function to set custom color scheme
 set_color_scheme() {
     termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Setting custom color scheme..."
-    mkdir -p ~/.termux
-    cat > ~/.termux/colors.properties << EOF
-background=#282a36
-foreground=#f8f8f2
-cursor=#f8f8f2
 
-color0=#000000
-color8=#4d4d4d
+    # Define the path to your existing config directory where colors.properties is stored
+    CONFIG_DIR="$HOME/termuxpert/config"  # Modify this path if needed
+    COLORS_FILE="$CONFIG_DIR/termux/colors.properties"
 
-color1=#ff5555
-color9=#ff6e67
-
-color2=#50fa7b
-color10=#5af78e
-
-color3=#f1fa8c
-color11=#f4f99d
-
-color4=#bd93f9
-color12=#caa9fa
-
-color5=#ff79c6
-color13=#ff92d0
-
-color6=#8be9fd
-color14=#9aedfe
-
-color7=#bfbfbf
-color15=#e6e6e6
-EOF
-    termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Custom color scheme set. Restart Termux to apply changes."
+    # Check if the colors.properties file exists in the config directory
+    if [ -f "$COLORS_FILE" ]; then
+        mkdir -p ~/.termux
+        cp "$COLORS_FILE" ~/.termux/colors.properties
+        termuxpert_print_color "$TERMUXPERT_COLOR_GREEN" "Custom color scheme set from the config file. Restart Termux to apply changes."
+    else
+        termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Error: colors.properties file not found in the config directory!"
+    fi
 }
+
 
 # Function to configure extra keys
 configure_extra_keys() {
@@ -131,13 +132,14 @@ install_custom_fonts() {
 show_menu() {
     clear
     termuxpert_print_color "$TERMUXPERT_COLOR_CYAN" "Termux Customization"
-    echo "1. Set up Zsh and Oh My Zsh"
-    echo "2. Set custom color scheme"
-    echo "3. Configure extra keys"
-    echo "4. Install and configure Vim"
-    echo "5. Install and configure Tmux"
-    echo "6. Install custom fonts"
-    echo "7. Return to main menu"
+    echo "1. Set Termux Configure"
+    echo "2. Set up Zsh and Oh My Zsh"
+    echo "3. Set custom color scheme"
+    echo "4. Configure extra keys"
+    echo "5. Install and configure Vim"
+    echo "6. Install and configure Tmux"
+    echo "7. Install custom fonts"
+    echo "8. Return to main menu"
     echo
     read -p "Enter your choice [1-7]: " choice
 }
@@ -147,13 +149,14 @@ main() {
     while true; do
         show_menu
         case $choice in
-            1) setup_zsh ;;
-            2) set_color_scheme ;;
-            3) configure_extra_keys ;;
-            4) setup_vim ;;
-            5) setup_tmux ;;
-            6) install_custom_fonts ;;
-            7) return ;;
+            1) set_termux_scheme ;;
+            2) setup_zsh ;;
+            3) set_color_scheme ;;
+            4) configure_extra_keys ;;
+            5) setup_vim ;;
+            6) setup_tmux ;;
+            7) install_custom_fonts ;;
+            8) return ;;
             *)
                 termuxpert_print_color "$TERMUXPERT_COLOR_RED" "Invalid option. Please try again."
                 ;;
