@@ -1,6 +1,6 @@
 {
   "name": "termuxpert",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An advanced Termux package for automation, customization, and system management.",
   "main": "install.sh",
   "scripts": {
@@ -48,7 +48,7 @@
     "LICENSE"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {},
   "devDependencies": {}

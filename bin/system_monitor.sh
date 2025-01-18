@@ -57,12 +57,6 @@ monitor_processes() {
     echo "$process_list"
 }
 
-# Function to allow user to stop monitoring with a key press
-exit_monitoring() {
-    termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Press any key to stop monitoring..."
-    read -n 1 -s -r
-}
-
 # Main monitoring function
 monitor_system() {
     while true; do
@@ -82,7 +76,8 @@ monitor_system() {
         monitor_processes
         echo "----------------------------------------"
         sleep 2
-        exit_monitoring
+        termuxpert_print_color "$TERMUXPERT_COLOR_YELLOW" "Press any key to stop monitoring..."
+        read -n 1 -s -r
         break
     done
 }

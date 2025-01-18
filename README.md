@@ -1,4 +1,4 @@
-# TermuXpert 🚀
+# TermuXpert 🚀 
 
 [![npm version](https://img.shields.io/npm/v/termuxpert.svg?style=flat-square&color=cyan)](https://www.npmjs.com/package/termuxpert)
 [![GitHub stars](https://img.shields.io/github/stars/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert)
