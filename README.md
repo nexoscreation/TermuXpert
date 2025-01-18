@@ -1,8 +1,10 @@
 # TermuXpert 🚀
 
+[![npm version](https://img.shields.io/npm/v/termuxpert.svg?style=flat-square&color=cyan)](https://www.npmjs.com/package/termuxpert)
 [![GitHub stars](https://img.shields.io/github/stars/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert)
-[![GitHub forks](https://img.shields.io/github/forks/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert/fork)
-[![GitHub watchers](https://img.shields.io/github/watchers/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert)
+[![GitHub issues](https://img.shields.io/github/issues/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert/pulls)
+[![GitHub license](https://img.shields.io/github/license/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert/blob/main/LICENSE)
 
 > 🛠️ Supercharge your Termux experience with TermuXpert - Your all-in-one toolkit for Android terminal mastery!
 
@@ -60,17 +62,6 @@ Join our vibrant community:
 - [💬 Discussions](https://github.com/nexoscreation/TermuXpert/discussions): Share ideas, ask questions
 - [🐛 Issue Tracker](https://github.com/nexoscreation/TermuXpert/issues): Report bugs or request features
 - [🌟 Star this repo](https://github.com/nexoscreation/TermuXpert) to show your support!
-
-## 📅 Roadmap
-
-Exciting features coming soon:
-
-- [ ] GUI interface for easier navigation
-- [ ] Cloud backup integration
-- [ ] Plugin system for community-contributed tools
-- [ ] Multi-language support
-
-See our [full roadmap](ROADMAP.md) for more upcoming features!
 
 ## 📄 License
 

@@ -6,7 +6,7 @@
 
 # Strict mode
 set -euo pipefail
-trap 'error_handler $? $LINENO $BASH_LINENO "$BASH_COMMAND" $(printf "::%s" ${FUNCNAME[@]:-})' ERR
+trap 'error_handler $? $LINENO "$BASH_COMMAND"' ERR
 
 # Color definitions
 readonly COLOR_SUCCESS='\033[0;32m'
@@ -38,9 +38,11 @@ create_backup() {
     if [ -d "$INSTALL_DIR" ]; then
         log_info "Creating backup at $BACKUP_DIR..."
         mkdir -p "$BACKUP_DIR"
-        cp -r "$INSTALL_DIR"/* "$BACKUP_DIR/"
+        cp -r "$INSTALL_DIR"/* "$BACKUP_DIR/" 2>/dev/null || true
         cp "$CONFIG_FILE" "$BACKUP_DIR/" 2>/dev/null || true
         log_success "Backup created successfully"
+    else
+        log_warning "No installation directory found to back up"
     fi
 }
 
@@ -50,67 +52,81 @@ validate_installation() {
         log_error "TermuXpert configuration file not found"
         exit 1
     fi
-    
+
     source "$CONFIG_FILE"
-    
+
     if [ ! -d "$INSTALL_DIR" ]; then
         log_error "TermuXpert installation directory not found"
         exit 1
     fi
+
+    log_success "TermuXpert installation validation passed"
 }
 
 # Uninstallation process
 perform_uninstallation() {
     # Remove symlink
     log_info "Removing symlink..."
-    rm -f "$PREFIX/bin/termuxpert" || log_warning "Failed to remove symlink"
-    
+    if rm -f "$PREFIX/bin/termuxpert"; then
+        log_success "Symlink removed successfully"
+    else
+        log_warning "Failed to remove symlink"
+    fi
+
     # Remove installation directory
     log_info "Removing TermuXpert directory..."
-    rm -rf "$INSTALL_DIR" || log_warning "Failed to remove installation directory"
-    
+    if rm -rf "$INSTALL_DIR"; then
+        log_success "Installation directory removed successfully"
+    else
+        log_warning "Failed to remove installation directory"
+    fi
+
     # Remove configuration
     log_info "Removing configuration file..."
-    rm -f "$CONFIG_FILE" || log_warning "Failed to remove configuration file"
-    
-    # Remove any remaining files
+    if rm -f "$CONFIG_FILE"; then
+        log_success "Configuration file removed successfully"
+    else
+        log_warning "Failed to remove configuration file"
+    fi
+
+    # Remove remaining files
     log_info "Cleaning up remaining files..."
     rm -f "$HOME/.termuxpert_history" 2>/dev/null || true
     rm -rf "$HOME/.termuxpert_cache" 2>/dev/null || true
+    log_info "Cleanup completed"
 }
 
 # Main uninstallation process
 main() {
     clear
     echo -e "${COLOR_INFO}================================"
-    echo -e "${COLOR_WARNING} TermuXpert Uninstaller v1.0.0   "
+    echo -e "${COLOR_WARNING}  TermuXpert Uninstaller v1.0.0  "
     echo -e "${COLOR_INFO}================================${COLOR_RESET}"
-    
+
     validate_installation
-    
+
+    # Confirmation prompt for uninstallation
     log_warning "Are you sure you want to uninstall TermuXpert? (y/N)"
     read -r confirm
-    
     if [[ ! $confirm =~ ^[Yy]$ ]]; then
         log_info "Uninstallation cancelled"
         exit 0
     fi
-    
+
+    # Backup prompt
     log_warning "Would you like to create a backup before uninstalling? (Y/n)"
     read -r backup_confirm
-    
     if [[ ! $backup_confirm =~ ^[Nn]$ ]]; then
         create_backup
     fi
-    
+
+    # Perform uninstallation
     perform_uninstallation
-    
+
     log_success "TermuXpert has been successfully uninstalled"
-    
     if [ -d "$BACKUP_DIR" ]; then
         log_info "Your backup is available at: $BACKUP_DIR"
     fi
-    
     log_info "Thank you for using TermuXpert!"
 }
 

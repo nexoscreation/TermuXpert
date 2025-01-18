@@ -1,5 +1,5 @@
 {
-  "name": "TermuXpert",
+  "name": "termuxpert",
   "version": "1.0.0",
   "description": "An advanced Termux package for automation, customization, and system management.",
   "main": "install.sh",
@@ -8,24 +8,48 @@
     "update": "bash update.sh",
     "uninstall": "bash uninstall.sh",
     "test": "bash test.sh",
-    "docs": "open README.md"
+    "docs": "open README.md",
+    "prepublishOnly": "bash validate.sh"
+  },
+  "bin": {
+    "termuxpert": "bin/termuxpert.sh"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nexoscreation/TermuXpert.git"
   },
   "keywords": [
-    "os",
     "termux",
     "automation",
-    "tools",
-    "system",
-    "expert"
+    "customization",
+    "system-management",
+    "linux-tools",
+    "expert-tools"
   ],
   "author": "nexoscreator",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nexoscreation/TermuXpert/issues"
+    "url": "https://github.com/nexoscreation/TermuXpert/issues",
+    "email": "support@nexoscreation.tech"
   },
-  "homepage": "https://github.com/nexoscreation/TermuXpert#readme"
+  "homepage": "https://github.com/nexoscreation/TermuXpert#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "bin/",
+    "config/",
+    "script/",
+    "install.sh",
+    "uninstall.sh",
+    "update.sh",
+    "config.sh",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }
