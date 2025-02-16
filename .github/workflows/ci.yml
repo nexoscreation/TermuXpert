@@ -24,9 +24,7 @@ jobs:
 
         # Download and extract a Termux root filesystem
         curl -LO https://github.com/termux/termux-app/releases/download/v0.118.0/termux-app_v0.118.0+github-debug_universal.apk
-        wget https://raw.githubusercontent.com/termux/proot-distro/master/termux-rootfs.tar.gz
-        tar -xzf termux-rootfs.tar.gz
-        cd ..
+
     
     - name: Run tests in Termux
       run: |

@@ -37,11 +37,11 @@ termuxpert
 
 ## 📚 Documentation
 
-Dive deeper into TermuXpert's capabilities:
+Explore TermuXpert's full potential with these guides:
 
-- [📘 User Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/user_guide): Comprehensive guide to all features
-- [🛠️ Devloper Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/devloper_guide): Detailed Devloper instructions
-- [🔧 Scripts](https://docs.nexoscreator.tech/termux-os/termuxpert/scripts): More Scripts to common feature
+- [📘 User Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/user_guide): A comprehensive guide to all features.
+- [🛠️ Developer Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/developer_guide): Step-by-step instructions for developers.
+- [🔧 Scripts](https://docs.nexoscreator.tech/termux-os/termuxpert/scripts): A collection of useful scripts for common tasks.
 
 ## 🤝 Contributing
 
