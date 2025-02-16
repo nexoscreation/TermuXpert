@@ -39,9 +39,9 @@ termuxpert
 
 Dive deeper into TermuXpert's capabilities:
 
-- [📘 User Guide](docs/user_guide.md): Comprehensive guide to all features
-- [🛠️ Installation Guide](docs/installation.md): Detailed installation instructions
-- [🔧 Troubleshooting](docs/troubleshooting.md): Solutions to common issues
+- [📘 User Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/user_guide): Comprehensive guide to all features
+- [🛠️ Devloper Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/devloper_guide): Detailed Devloper instructions
+- [🔧 Scripts](https://docs.nexoscreator.tech/termux-os/termuxpert/scripts): More Scripts to common feature
 
 ## 🤝 Contributing
 
