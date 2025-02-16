@@ -1,4 +1,4 @@
-# TermuXpert 🚀
+# TermuXpert 🚀 
 
 [![npm version](https://img.shields.io/npm/v/termuxpert.svg?style=flat-square&color=cyan)](https://www.npmjs.com/package/termuxpert)
 [![GitHub stars](https://img.shields.io/github/stars/nexoscreation/TermuXpert.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/TermuXpert)
@@ -37,11 +37,11 @@ termuxpert
 
 ## 📚 Documentation
 
-Dive deeper into TermuXpert's capabilities:
+Explore TermuXpert's full potential with these guides:
 
-- [📘 User Guide](docs/user_guide.md): Comprehensive guide to all features
-- [🛠️ Installation Guide](docs/installation.md): Detailed installation instructions
-- [🔧 Troubleshooting](docs/troubleshooting.md): Solutions to common issues
+- [📘 User Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/user_guide): A comprehensive guide to all features.
+- [🛠️ Developer Guide](https://docs.nexoscreator.tech/termux-os/termuxpert/developer_guide): Step-by-step instructions for developers.
+- [🔧 Scripts](https://docs.nexoscreator.tech/termux-os/termuxpert/scripts): A collection of useful scripts for common tasks.
 
 ## 🤝 Contributing
 

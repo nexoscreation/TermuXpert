@@ -16,13 +16,24 @@ jobs:
     - name: Set up Termux environment
       run: |
         sudo apt-get update
-        sudo apt-get install -y proot
+        sudo apt-get install -y proot wget tar
+
+        # Create a directory for Termux rootfs
+        mkdir -p termux-rootfs
+        cd termux-rootfs
+
+        # Download and extract a Termux root filesystem
         curl -LO https://github.com/termux/termux-app/releases/download/v0.118.0/termux-app_v0.118.0+github-debug_universal.apk
-        proot -0 -r . -b /dev -b /proc -b /sys -b /etc -w /root /system/bin/sh -c "pkg update -y && pkg install -y bash curl"
+
     
-    - name: Run tests
+    - name: Run tests in Termux
       run: |
-        proot -0 -r . -b /dev -b /proc -b /sys -b /etc -w /root /system/bin/sh -c "bash bin/termuxpert.sh"
+        proot -0 -r termux-rootfs -b /dev -b /proc -b /sys -b /etc -w /root \
+          /data/data/com.termux/files/usr/bin/bash -c "
+          pkg update -y &&
+          pkg install -y bash curl &&
+          bash bin/test.sh
+        "
     
     - name: Lint shell scripts
       run: |
